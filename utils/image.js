@@ -10,6 +10,5 @@ export const images = {
   mic: require('../../assets/images/mic.png'),
   search: require('../../assets/images/search.png'),
   threeDots: require('../../assets/images/threeDots.png'),
-  videoCall: require('../../assets/images/videoCall.png'),
-  wallpaper: require('../../assets/images/wallpaper.jpg')
+  videoCall: require('../../assets/images/videoCall.png')
 };
