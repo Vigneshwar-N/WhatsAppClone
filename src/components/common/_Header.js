@@ -10,6 +10,7 @@ export default function Header({
   search,
   fontSize,
   color,
+  size,
 }) {
   return (
     <View style={{paddingTop: ph(10), paddingBottom: ph(10)}}>
@@ -27,7 +28,10 @@ export default function Header({
           {leftImage && (
             <View style={{height: ph(30)}}>
               <Image
-                style={{height: ph(20), width: ph(20)}}
+                style={{
+                  height: !size ? ph(20) : ph(size),
+                  width: !size ? pw(20) : pw(size),
+                }}
                 source={images.leftArrow}
               />
             </View>
@@ -50,17 +54,28 @@ export default function Header({
             height: ph(30),
           }}>
           <Image
-            style={{height: ph(20), width: ph(20), right: pw(20)}}
+            style={{
+              height: !size ? ph(20) : ph(size),
+              width: !size ? pw(20) : pw(size),
+              right: pw(20),
+            }}
             source={images.camera}
           />
           {search && (
             <Image
-              style={{height: ph(20), width: ph(20), right: pw(10)}}
+              style={{
+                height: !size ? ph(20) : ph(size),
+                width: !size ? pw(20) : pw(size),
+                right: pw(10),
+              }}
               source={images.search}
             />
           )}
           <Image
-            style={{height: ph(20), width: ph(20)}}
+            style={{
+              height: !size ? ph(20) : ph(size),
+              width: !size ? pw(20) : pw(size),
+            }}
             source={images.threeDots}
           />
         </View>

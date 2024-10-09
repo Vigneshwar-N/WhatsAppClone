@@ -10,9 +10,9 @@ import {
   View,
 } from 'react-native';
 import React, {useState} from 'react';
-import {data} from '../../../constants/data/list';
-import {images} from '../../../constants/images/image';
-import {colors} from '../../../constants/color/colors';
+import {data} from '../../constants/data/list';
+import {colors} from '../../constants/color/colors';
+import {images} from '../../constants/images/image';
 
 export default function ChatScreen() {
   const [typing, setTyping] = useState(false);
@@ -108,8 +108,8 @@ export default function ChatScreen() {
               <Image
                 source={images.emoji}
                 style={{
-                  height: 30,
-                  width: 30,
+                  height: 25,
+                  width: 25,
                   alignSelf: input.length >= 30 ? 'flex-end' : 'center',
                 }}
               />
@@ -133,8 +133,8 @@ export default function ChatScreen() {
               <Image
                 source={images.attach}
                 style={{
-                  height: 30,
-                  width: 30,
+                  height: 25,
+                  width: 25,
                   alignSelf: input.length > 30 ? 'flex-end' : 'center',
                   right: input === '' ? 25 : 0,
                 }}
@@ -146,8 +146,8 @@ export default function ChatScreen() {
                     alignItems: 'center',
                     backgroundColor: '#909598',
                     borderRadius: 100,
-                    height: 30,
-                    width: 30,
+                    height: 25,
+                    width: 25,
                     right: 15,
                   }}>
                   <Text
@@ -164,8 +164,8 @@ export default function ChatScreen() {
                 <Image
                   source={images.grayCamera}
                   style={{
-                    height: 30,
-                    width: 30,
+                    height: 25,
+                    width: 25,
                   }}
                 />
               )}
@@ -183,8 +183,8 @@ export default function ChatScreen() {
               <Image
                 source={images.mic}
                 style={{
-                  height: 30,
-                  width: 30,
+                  height: 25,
+                  width: 25,
                 }}
               />
             )}
@@ -192,8 +192,8 @@ export default function ChatScreen() {
               <Image
                 source={images.messageSend}
                 style={{
-                  height: 30,
-                  width: 30,
+                  height: 25,
+                  width: 25,
                   alignSelf: 'center',
                   left: 3,
                 }}

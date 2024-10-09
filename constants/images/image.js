@@ -8,8 +8,10 @@ export const images = {
   messageSend: require('../../assets/images/messageSend.png'),
   MetaAilogo: require('../../assets/images/MetaAilogo.png'),
   mic: require('../../assets/images/mic.png'),
+  pencil: require('../../assets/images/pencil.png'),
   search: require('../../assets/images/search.png'),
   threeDots: require('../../assets/images/threeDots.png'),
   videoCall: require('../../assets/images/videoCall.png'),
-  wallpaper: require('../../assets/images/wallpaper.jpg')
+  wallpaper: require('../../assets/images/wallpaper.jpg'),
+  whiteCam: require('../../assets/images/whiteCam.png')
 };
