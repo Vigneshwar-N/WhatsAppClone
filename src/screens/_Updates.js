@@ -24,7 +24,7 @@ export default function Updates() {
   console.log(ids);
 
   return (
-    <View style={{flex: 1}}>
+    <View style={{flex: 1, backgroundColor: '#FFF'}}>
       <StatusBar backgroundColor={colors.white} barStyle={'dark-content'} />
 
       <View style={{paddingTop: 10}}>
@@ -167,7 +167,7 @@ export default function Updates() {
               paddingBottom: 10,
             }}>
             Stay updated on topics that matter to you. Find channels to follow
-            bellow.
+            below.
           </Text>
           {/* FlatList */}
           <View>
@@ -201,7 +201,7 @@ export default function Updates() {
                   </Text>
                   <View
                     style={{
-                      padding: 5, // Adjusted for a consistent look
+                      padding: 5,
                       paddingHorizontal: 10,
                       borderRadius: 25,
                       backgroundColor: '#D8FDD2',
@@ -233,8 +233,36 @@ export default function Updates() {
         </View>
       </ScrollView>
 
-      <Image style={{height: 50, width: 50}} source={images.pencil} />
-      <Image style={{height: 50, width: 50}} source={images.pencil} />
+      {/* Overlay Images */}
+      <View
+        style={{
+          position: 'relative',
+        }}>
+        <Image
+          style={{
+            height: 35,
+            width: 35,
+            position: 'absolute',
+            bottom: 100,
+            right: 10,
+            backgroundColor: '#F6F5F3',
+            borderWidth: 10,
+          }}
+          resizeMode="contain"
+          source={images.pencil}
+        />
+
+        <Image
+          style={{
+            height: 35,
+            width: 35,
+            position: 'absolute',
+            bottom: 10,
+            right: 10,
+          }}
+          source={images.pencil}
+        />
+      </View>
     </View>
   );
 }
