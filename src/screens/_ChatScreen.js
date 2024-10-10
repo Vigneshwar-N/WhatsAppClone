@@ -103,10 +103,15 @@ export default function ChatScreen() {
             key={index}
             style={{
               backgroundColor: '#D8FDD2',
-              borderRadius: 5,
               alignSelf: 'flex-end', // Align message bubbles to the right
               marginBottom: 5,
               padding: 10,
+
+              // Curve only this part
+              borderTopLeftRadius: 10,
+              borderBottomLeftRadius: 10,
+              borderBottomRightRadius: 10,
+              transform: [{rotate: '0deg'}],
             }}>
             <Text>{message}</Text>
           </View>
