@@ -9,13 +9,15 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import {data} from '../../constants/data/list';
 import {colors} from '../../constants/color/colors';
 import {images} from '../../constants/images/image';
 import {ph, pw} from '../../utils/responsive';
+import {ChatContext} from '../../Hooks/UseContext';
 
 export default function ChatScreen() {
+  const {selectedChat} = useContext(ChatContext);
   const [input, setInput] = useState('');
   const [messages, setMessages] = useState([]);
   const image = data[0];
@@ -53,7 +55,7 @@ export default function ChatScreen() {
               />
             </TouchableOpacity>
             <Image
-              source={{uri: image.imageUri}}
+              source={{uri: selectedChat.imageUri}}
               style={{
                 height: ph(50),
                 width: pw(50),
@@ -68,7 +70,7 @@ export default function ChatScreen() {
                   fontSize: ph(18),
                   fontWeight: 'bold',
                 }}>
-                {image.name}
+                {selectedChat.name}
               </Text>
               <Text
                 style={{
@@ -76,7 +78,7 @@ export default function ChatScreen() {
                   color: colors.black,
                   fontWeight: '500',
                 }}>
-                last seen {image.lastSeen} at {image.time}
+                last seen {selectedChat.lastSeen} at {selectedChat.time}
               </Text>
             </View>
           </View>
@@ -122,7 +124,7 @@ export default function ChatScreen() {
             position: 'relative',
             width: '70%',
           }}>
-          <Text>{data[0].message}</Text>
+          <Text>{selectedChat.message}</Text>
 
           {/* Custom pointy top-right corner */}
           <View

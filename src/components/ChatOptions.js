@@ -50,8 +50,7 @@ export default function ChatOptions() {
         <TouchableOpacity onPress={All}>
           <Text
             style={{
-              paddingHorizontal: pw(5),
-              paddingVertical: ph(2),
+              padding: '2%',
               borderRadius: pw(20),
               marginHorizontal: pw(5),
               backgroundColor: one ? change : bg,
@@ -66,8 +65,7 @@ export default function ChatOptions() {
         <TouchableOpacity onPress={Unread}>
           <Text
             style={{
-              paddingHorizontal: pw(5),
-              paddingVertical: ph(2),
+              padding: '2%',
               borderRadius: pw(20),
               marginHorizontal: pw(5),
               backgroundColor: Two ? change : bg,
@@ -80,8 +78,7 @@ export default function ChatOptions() {
         <TouchableOpacity onPress={Favorites}>
           <Text
             style={{
-              paddingHorizontal: pw(5),
-              paddingVertical: ph(2),
+              padding: '2%',
               borderRadius: pw(20),
               marginHorizontal: pw(5),
               backgroundColor: Three ? change : bg,
@@ -94,8 +91,7 @@ export default function ChatOptions() {
         <TouchableOpacity onPress={Groups}>
           <Text
             style={{
-              paddingHorizontal: pw(5),
-              paddingVertical: ph(2),
+              padding: '2%',
               borderRadius: pw(20),
               marginHorizontal: pw(5),
               backgroundColor: Four ? change : bg,

@@ -18,7 +18,7 @@ import {images} from '../../constants/images/image';
 import {colors} from '../../constants/color/colors';
 import {ph, pw} from '../../utils/responsive';
 
-export default function _Chats() {
+export default function _Chats({navigation}) {
   return (
     <View style={{backgroundColor: '#FFF', flex: 1}}>
       <StatusBar backgroundColor={'#FFF'} barStyle={'dark-content'} />
@@ -28,7 +28,7 @@ export default function _Chats() {
         style={{backgroundColor: colors.white}}
         showsVerticalScrollIndicator={false}>
         <ChatOptions />
-        <ChatList />
+        <ChatList navigation={navigation} />
       </ScrollView>
       {/* Overlay Images */}
       <View

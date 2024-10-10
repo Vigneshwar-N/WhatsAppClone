@@ -12,5 +12,7 @@ import Community from './src/screens/_Community';
 import Splash from './src/screens/_Splash';
 import BottomSheet from './src/navigation/BottomSheet';
 import ChatList from './src/components/_ChatList';
+import App from './App';
+import StackNav from './src/navigation/StackNav';
 
-AppRegistry.registerComponent(appName, () => _Chats);
+AppRegistry.registerComponent(appName, () => App);
