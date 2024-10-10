@@ -12,6 +12,7 @@ export const images = {
   lock: require('../../assets/images/lock.png'),
   messageSend: require('../../assets/images/messageSend.png'),
   MetaAilogo: require('../../assets/images/MetaAilogo.png'),
+  metaLogo: require('../../assets/images/metaLogo.png'),
   mic: require('../../assets/images/mic.png'),
   pencil: require('../../assets/images/pencil.png'),
   rightArrow: require('../../assets/images/rightArrow.png'),
@@ -19,5 +20,6 @@ export const images = {
   threeDots: require('../../assets/images/threeDots.png'),
   videoCall: require('../../assets/images/videoCall.png'),
   wallpaper: require('../../assets/images/wallpaper.jpg'),
+  whatsappLogo: require('../../assets/images/whatsappLogo.png'),
   whiteCam: require('../../assets/images/whiteCam.png')
 };
