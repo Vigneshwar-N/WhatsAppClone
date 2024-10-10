@@ -7,7 +7,7 @@ import {ph, pw} from '../../utils/responsive';
 export default function Splash({navigation}) {
   useEffect(() => {
     setTimeout(() => {
-      navigation.replace('Home');
+      navigation.navigate('Home');
     }, 1000);
   }, []);
   return (
