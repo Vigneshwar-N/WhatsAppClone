@@ -11,5 +11,6 @@ import _Chats from './src/screens/_Chats';
 import Community from './src/screens/_Community';
 import Splash from './src/screens/_Splash';
 import BottomSheet from './src/navigation/BottomSheet';
+import ChatList from './src/components/_ChatList';
 
-AppRegistry.registerComponent(appName, () => BottomSheet);
+AppRegistry.registerComponent(appName, () => _Chats);

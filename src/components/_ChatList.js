@@ -1,4 +1,11 @@
-import {FlatList, Image, StyleSheet, Text, View} from 'react-native';
+import {
+  FlatList,
+  Image,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import React from 'react';
 import {colors} from '../../constants/color/colors';
 import {data} from '../../constants/data/list';
@@ -13,7 +20,7 @@ export default function ChatList() {
         scrollEnabled={false}
         data={data}
         renderItem={({item}) => (
-          <View
+          <TouchableOpacity
             style={{
               flexDirection: 'row',
               alignItems: 'center',
@@ -50,7 +57,7 @@ export default function ChatList() {
                 {item.message}
               </Text>
             </View>
-          </View>
+          </TouchableOpacity>
         )}
       />
     </View>
