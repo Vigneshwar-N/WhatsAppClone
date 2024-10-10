@@ -191,7 +191,8 @@ export default function ChatScreen() {
               )}
             </View>
           </View>
-          <View
+          {/* send */}
+          <TouchableOpacity
             style={{
               backgroundColor: colors.green,
 
@@ -219,7 +220,7 @@ export default function ChatScreen() {
                 }}
               />
             )}
-          </View>
+          </TouchableOpacity>
         </View>
       </View>
     </ImageBackground>
