@@ -30,7 +30,7 @@ export default function Updates() {
       <View style={{paddingTop: 10}}>
         <Header headerText={'Updates'} size={25} search />
       </View>
-      <ScrollView style={{flex: 1}}>
+      <ScrollView style={{flex: 1, backgroundColor: colors.white}}>
         <View style={{paddingRight: 20, paddingLeft: 20}}>
           <Text
             style={{
@@ -238,30 +238,50 @@ export default function Updates() {
         style={{
           position: 'relative',
         }}>
-        <Image
+        <View
           style={{
-            height: 35,
-            width: 35,
             position: 'absolute',
             bottom: 100,
             right: 10,
             backgroundColor: '#F6F5F3',
-            borderWidth: 10,
-          }}
-          resizeMode="contain"
-          source={images.pencil}
-        />
+            // borderWidth: 10,
+            height: 50,
+            width: 50,
 
-        <Image
+            justifyContent: 'center',
+            alignItems: 'center',
+            borderRadius: 19,
+          }}>
+          <Image
+            style={{
+              height: 20,
+              width: 20,
+            }}
+            resizeMode="contain"
+            source={images.pencil}
+          />
+        </View>
+        <View
           style={{
-            height: 35,
-            width: 35,
             position: 'absolute',
-            bottom: 10,
+            bottom: 35,
             right: 10,
-          }}
-          source={images.pencil}
-        />
+            backgroundColor: colors.green,
+            height: 50,
+            width: 50,
+
+            justifyContent: 'center',
+            alignItems: 'center',
+            borderRadius: 19,
+          }}>
+          <Image
+            style={{
+              height: 20,
+              width: 20,
+            }}
+            source={images.whiteCam}
+          />
+        </View>
       </View>
     </View>
   );
