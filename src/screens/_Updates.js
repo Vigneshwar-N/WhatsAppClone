@@ -44,7 +44,7 @@ export default function Updates() {
             Status
           </Text>
           {/* My Status */}
-          <View
+          <TouchableOpacity
             style={{
               flexDirection: 'row',
               alignItems: 'center',
@@ -52,7 +52,7 @@ export default function Updates() {
             }}>
             <Image
               source={{uri: image.imageUri}}
-              style={{height: ph(60), width: pw(60), borderRadius: 100}}
+              style={{height: ph(50), width: pw(50), borderRadius: 100}}
             />
             <View
               style={{
@@ -60,15 +60,15 @@ export default function Updates() {
                 borderRadius: 100,
                 justifyContent: 'center',
                 alignItems: 'center',
-                height: ph(30),
-                width: ph(30),
-                right: pw(25),
-                bottom: ph(-18),
+                height: ph(20),
+                width: ph(20),
+                right: pw(21),
+                bottom: ph(-17),
               }}>
               <Text
                 style={{
                   color: colors.white,
-                  fontSize: ph(15),
+                  fontSize: ph(13),
                   fontWeight: 'bold',
                 }}>
                 +
@@ -77,17 +77,17 @@ export default function Updates() {
             <View style={{right: pw(10)}}>
               <Text
                 style={{
-                  fontSize: ph(18),
+                  fontSize: ph(17),
                   fontWeight: 'bold',
                   color: colors.black,
                 }}>
                 My Status
               </Text>
-              <Text style={{fontSize: ph(14), color: colors.gray}}>
+              <Text style={{fontSize: ph(13), color: colors.gray}}>
                 Tap to add status update
               </Text>
             </View>
-          </View>
+          </TouchableOpacity>
         </View>
         {/* Others */}
         <View
@@ -111,7 +111,7 @@ export default function Updates() {
             showsVerticalScrollIndicator={false}
             scrollEnabled={false}
             renderItem={({item}) => (
-              <View>
+              <TouchableOpacity>
                 <View
                   style={{
                     flexDirection: 'row',
@@ -121,7 +121,7 @@ export default function Updates() {
                   {/* Image */}
                   <View
                     style={{
-                      borderWidth: 5,
+                      borderWidth: 2,
                       borderColor: colors.green,
                       borderRadius: 100,
                       padding: 1,
@@ -129,23 +129,23 @@ export default function Updates() {
                     <Image
                       source={{uri: item.imageUri}}
                       style={{
-                        height: ph(60),
-                        width: pw(60),
+                        height: ph(50),
+                        width: pw(50),
                         borderRadius: 100,
                       }}
                     />
                   </View>
                   {/* Text */}
                   <View style={{left: pw(13)}}>
-                    <Text style={{fontSize: ph(20), color: colors.black}}>
+                    <Text style={{fontSize: ph(18), color: colors.black}}>
                       {item.name}
                     </Text>
-                    <Text style={{fontSize: ph(16), color: colors.gray}}>
+                    <Text style={{fontSize: ph(15), color: colors.gray}}>
                       {item.time}
                     </Text>
                   </View>
                 </View>
-              </View>
+              </TouchableOpacity>
             )}
           />
         </View>
@@ -209,7 +209,7 @@ export default function Updates() {
                   <Text style={{fontSize: ph(15), color: colors.black}}>
                     {item.name}
                   </Text>
-                  <View
+                  <TouchableOpacity
                     style={{
                       padding: ph(5),
                       paddingHorizontal: pw(10),
@@ -219,7 +219,7 @@ export default function Updates() {
                     <Text style={{fontSize: ph(15), color: '#14613F'}}>
                       Follow
                     </Text>
-                  </View>
+                  </TouchableOpacity>
                 </View>
               )}
             />
@@ -251,7 +251,7 @@ export default function Updates() {
 
       {/* Overlay Images */}
       <View style={{position: 'relative'}}>
-        <View
+        <TouchableOpacity
           style={{
             position: 'absolute',
             bottom: ph(100),
@@ -276,8 +276,8 @@ export default function Updates() {
             resizeMode="contain"
             source={images.pencil}
           />
-        </View>
-        <View
+        </TouchableOpacity>
+        <TouchableOpacity
           style={{
             position: 'absolute',
             bottom: ph(35),
@@ -301,7 +301,7 @@ export default function Updates() {
             }}
             source={images.whiteCam}
           />
-        </View>
+        </TouchableOpacity>
       </View>
     </View>
   );

@@ -34,8 +34,8 @@ export default function Call() {
             style={{
               backgroundColor: colors.green,
               borderRadius: 100,
-              height: ph(60),
-              width: pw(60),
+              height: ph(50),
+              width: pw(50),
               justifyContent: 'center',
               alignItems: 'center',
             }}>
@@ -70,7 +70,7 @@ export default function Call() {
             <View style={{flexDirection: 'row', alignItems: 'center'}}>
               <Image
                 source={{uri: data[1].imageUri}}
-                style={{height: ph(60), width: pw(60), borderRadius: 100}}
+                style={{height: ph(50), width: pw(50), borderRadius: 100}}
               />
               <View>
                 <Text
@@ -92,14 +92,15 @@ export default function Call() {
                 </View>
               </View>
             </View>
-
-            <Image
-              source={images.call}
-              style={{
-                height: ph(25),
-                width: pw(25),
-              }}
-            />
+            <TouchableOpacity>
+              <Image
+                source={images.call}
+                style={{
+                  height: ph(25),
+                  width: pw(25),
+                }}
+              />
+            </TouchableOpacity>
           </View>
         </View>
       </View>

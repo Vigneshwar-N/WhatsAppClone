@@ -1,4 +1,4 @@
-import {Image, StyleSheet, Text, View} from 'react-native';
+import {Image, StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {images} from '../../../constants/images/image';
 import {colors} from '../../../constants/color/colors';
@@ -26,7 +26,7 @@ export default function Header({
         }}>
         <View style={{flexDirection: 'row', alignItems: 'center'}}>
           {leftImage && (
-            <View style={{height: ph(30)}}>
+            <TouchableOpacity style={{height: ph(30)}}>
               <Image
                 style={{
                   height: !size ? ph(20) : ph(size),
@@ -34,7 +34,7 @@ export default function Header({
                 }}
                 source={images.leftArrow}
               />
-            </View>
+            </TouchableOpacity>
           )}
           <Text
             style={{
@@ -53,31 +53,37 @@ export default function Header({
             alignItems: 'center',
             height: ph(30),
           }}>
-          <Image
-            style={{
-              height: !size ? ph(20) : ph(size),
-              width: !size ? pw(20) : pw(size),
-              right: pw(30),
-            }}
-            source={images.camera}
-          />
-          {search && (
+          <TouchableOpacity>
             <Image
               style={{
                 height: !size ? ph(20) : ph(size),
                 width: !size ? pw(20) : pw(size),
-                right: pw(10),
+                right: pw(30),
               }}
-              source={images.search}
+              source={images.camera}
             />
-          )}
-          <Image
-            style={{
-              height: !size ? ph(20) : ph(size),
-              width: !size ? pw(20) : pw(size),
-            }}
-            source={images.threeDots}
-          />
+          </TouchableOpacity>
+          <TouchableOpacity>
+            {search && (
+              <Image
+                style={{
+                  height: !size ? ph(20) : ph(size),
+                  width: !size ? pw(20) : pw(size),
+                  right: pw(10),
+                }}
+                source={images.search}
+              />
+            )}
+          </TouchableOpacity>
+          <TouchableOpacity>
+            <Image
+              style={{
+                height: !size ? ph(20) : ph(size),
+                width: !size ? pw(20) : pw(size),
+              }}
+              source={images.threeDots}
+            />
+          </TouchableOpacity>
         </View>
       </View>
     </View>

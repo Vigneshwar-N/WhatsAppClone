@@ -6,6 +6,7 @@ import {
   Text,
   View,
   Image,
+  TouchableOpacity,
 } from 'react-native';
 
 import React from 'react';
@@ -23,10 +24,10 @@ export default function _Chats({navigation}) {
     <View style={{backgroundColor: '#FFF', flex: 1}}>
       <StatusBar backgroundColor={'#FFF'} barStyle={'dark-content'} />
       <Header color fontSize={25} headerText={'Whatsapp'} size={25} />
-      <Search AiLogo />
       <ScrollView
         style={{backgroundColor: colors.white}}
         showsVerticalScrollIndicator={false}>
+        <Search AiLogo />
         <ChatOptions />
         <ChatList navigation={navigation} />
       </ScrollView>
@@ -35,7 +36,7 @@ export default function _Chats({navigation}) {
         style={{
           position: 'relative',
         }}>
-        <View
+        <TouchableOpacity
           style={{
             position: 'absolute',
             bottom: ph(100),
@@ -61,8 +62,8 @@ export default function _Chats({navigation}) {
             resizeMode="contain"
             source={images.MetaAilogo}
           />
-        </View>
-        <View
+        </TouchableOpacity>
+        <TouchableOpacity
           style={{
             position: 'absolute',
             bottom: ph(35),
@@ -87,7 +88,7 @@ export default function _Chats({navigation}) {
             }}
             source={images.whiteCam}
           />
-        </View>
+        </TouchableOpacity>
       </View>
     </View>
   );

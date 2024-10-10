@@ -60,48 +60,57 @@ export default function ChatScreen({navigation}) {
                 source={images.leftArrow}
               />
             </TouchableOpacity>
-            <Image
-              source={{uri: selectedItem.imageUri}}
-              style={{
-                height: ph(50),
-                width: pw(50),
-                borderRadius: 100,
-                left: pw(5),
-              }}
-            />
-            <View style={{left: pw(15)}}>
-              <Text
+            <TouchableOpacity
+              style={{flexDirection: 'row', alignItems: 'center'}}>
+              <Image
+                source={{uri: selectedItem.imageUri}}
                 style={{
-                  color: colors.black,
-                  fontSize: ph(18),
-                  fontWeight: 'bold',
-                }}>
-                {selectedItem.name}
-              </Text>
-              <Text
-                style={{
-                  fontSize: ph(11),
-                  color: colors.black,
-                  fontWeight: '500',
-                }}>
-                last seen {image.lastSeen} at {image.time}
-              </Text>
-            </View>
+                  height: ph(50),
+                  width: pw(50),
+                  borderRadius: 100,
+                  left: pw(5),
+                }}
+              />
+              <View style={{left: pw(15)}}>
+                <Text
+                  style={{
+                    color: colors.black,
+                    fontSize: ph(18),
+                    fontWeight: 'bold',
+                  }}>
+                  {selectedItem.name}
+                </Text>
+                <Text
+                  style={{
+                    fontSize: ph(11),
+                    color: colors.black,
+                    fontWeight: '500',
+                  }}>
+                  last seen {image.lastSeen} at {image.time}
+                </Text>
+              </View>
+            </TouchableOpacity>
           </View>
           <View style={{alignItems: 'flex-end', flex: 1}}>
             <View style={{flexDirection: 'row', alignItems: 'center'}}>
-              <Image
-                style={{height: ph(25), width: pw(25), right: pw(30)}}
-                source={images.videoCall}
-              />
-              <Image
-                style={{height: ph(25), width: pw(25), right: pw(10)}}
-                source={images.call}
-              />
-              <Image
-                style={{height: ph(25), width: pw(25)}}
-                source={images.threeDots}
-              />
+              <TouchableOpacity>
+                <Image
+                  style={{height: ph(25), width: pw(25), right: pw(30)}}
+                  source={images.videoCall}
+                />
+              </TouchableOpacity>
+              <TouchableOpacity>
+                <Image
+                  style={{height: ph(25), width: pw(25), right: pw(10)}}
+                  source={images.call}
+                />
+              </TouchableOpacity>
+              <TouchableOpacity>
+                <Image
+                  style={{height: ph(25), width: pw(25)}}
+                  source={images.threeDots}
+                />
+              </TouchableOpacity>
             </View>
           </View>
         </View>
@@ -161,7 +170,6 @@ export default function ChatScreen({navigation}) {
               borderBottomLeftRadius: 10,
               borderBottomRightRadius: 10,
               position: 'relative',
-              width: '70%',
             }}>
             <Text>{message}</Text>
 
@@ -208,14 +216,16 @@ export default function ChatScreen({navigation}) {
               padding: '2%',
             }}>
             <View style={{alignItems: 'center', flexDirection: 'row'}}>
-              <Image
-                source={images.emoji}
-                style={{
-                  height: ph(22),
-                  width: pw(22),
-                  alignSelf: input.length >= 30 ? 'flex-end' : 'center',
-                }}
-              />
+              <TouchableOpacity>
+                <Image
+                  source={images.emoji}
+                  style={{
+                    height: ph(22),
+                    width: pw(22),
+                    alignSelf: input.length >= 30 ? 'flex-end' : 'center',
+                  }}
+                />
+              </TouchableOpacity>
               <TextInput
                 placeholder="Message"
                 style={{
@@ -232,17 +242,19 @@ export default function ChatScreen({navigation}) {
               />
             </View>
             <View style={{alignItems: 'center', flexDirection: 'row'}}>
-              <Image
-                source={images.attach}
-                style={{
-                  height: ph(22),
-                  width: pw(22),
-                  alignSelf: input.length > 30 ? 'flex-end' : 'center',
-                  right: input === '' ? pw(25) : 0,
-                }}
-              />
+              <TouchableOpacity>
+                <Image
+                  source={images.attach}
+                  style={{
+                    height: ph(22),
+                    width: pw(22),
+                    alignSelf: input.length > 30 ? 'flex-end' : 'center',
+                    right: input === '' ? pw(25) : 0,
+                  }}
+                />
+              </TouchableOpacity>
               {input === '' && (
-                <View
+                <TouchableOpacity
                   style={{
                     justifyContent: 'center',
                     alignItems: 'center',
@@ -260,17 +272,19 @@ export default function ChatScreen({navigation}) {
                     }}>
                     ₹
                   </Text>
-                </View>
+                </TouchableOpacity>
               )}
-              {input === '' && (
-                <Image
-                  source={images.grayCamera}
-                  style={{
-                    height: ph(22),
-                    width: ph(22),
-                  }}
-                />
-              )}
+              <TouchableOpacity>
+                {input === '' && (
+                  <Image
+                    source={images.grayCamera}
+                    style={{
+                      height: ph(22),
+                      width: ph(22),
+                    }}
+                  />
+                )}
+              </TouchableOpacity>
             </View>
           </View>
           {/* Send Button */}
