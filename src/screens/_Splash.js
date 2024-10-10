@@ -1,10 +1,15 @@
 import {Image, StatusBar, StyleSheet, Text, View} from 'react-native';
-import React from 'react';
+import React, {useEffect} from 'react';
 import {colors} from '../../constants/color/colors';
 import {images} from '../../constants/images/image';
 import {ph, pw} from '../../utils/responsive';
 
-export default function Splash() {
+export default function Splash({navigation}) {
+  useEffect(() => {
+    setTimeout(() => {
+      navigation.replace('Home');
+    }, 1000);
+  }, []);
   return (
     <View style={{flex: 1, backgroundColor: colors.white}}>
       <StatusBar backgroundColor={colors.white} barStyle={'dark-content'} />

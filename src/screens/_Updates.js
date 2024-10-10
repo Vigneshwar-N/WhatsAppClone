@@ -229,8 +229,8 @@ export default function Updates() {
           <TouchableOpacity
             style={{
               backgroundColor: colors.green,
-              paddingHorizontal: pw(20), // Adjust for responsive width
-              paddingVertical: ph(4), // Adjust for responsive height
+              paddingHorizontal: '5%', // Adjust for responsive width
+              paddingVertical: '2%', // Adjust for responsive height
               alignSelf: 'flex-start',
               alignItems: 'center',
               justifyContent: 'center',

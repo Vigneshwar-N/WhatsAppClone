@@ -17,7 +17,7 @@ import {ph, pw} from '../../utils/responsive';
 
 export default function ChatScreen({navigation}) {
   function ToChats() {
-    navigation.navigate('Chats');
+    navigation.navigate('Home');
   }
   const [input, setInput] = useState('');
   const [messages, setMessages] = useState([]);

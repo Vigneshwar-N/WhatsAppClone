@@ -1,12 +1,12 @@
 import {Image, StyleSheet, View} from 'react-native';
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import StackNav from './StackNav';
 import Updates from '../screens/_Updates';
 import Community from '../screens/_Community';
 import Call from '../screens/_Call';
 import {images} from '../../constants/images/image'; // Assuming your image imports are correct.
 import {colors} from '../../constants/color/colors';
+import _Chats from '../screens/_Chats';
 
 export default function BottomTab() {
   const Tab = createBottomTabNavigator();
@@ -62,7 +62,7 @@ export default function BottomTab() {
             borderTopColor: '#ddd',
           },
         })}>
-        <Tab.Screen name="Chats" component={StackNav} />
+        <Tab.Screen name="Chats" component={_Chats} />
         <Tab.Screen name="Updates" component={Updates} />
         <Tab.Screen name="Community" component={Community} />
         <Tab.Screen name="Call" component={Call} />
@@ -70,3 +70,5 @@ export default function BottomTab() {
     </View>
   );
 }
+
+const styles = StyleSheet.create({});

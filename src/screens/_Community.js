@@ -71,8 +71,8 @@ export default function Community() {
 
         <TouchableOpacity
           style={{
-            paddingHorizontal: pw(20), // 10% of the screen width
-            paddingVertical: ph(3),
+            paddingHorizontal: '5%', // 10% of the screen width
+            paddingVertical: '3%',
             backgroundColor: colors.green,
             marginTop: ph(40),
             borderRadius: 50,
