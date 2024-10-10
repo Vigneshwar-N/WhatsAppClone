@@ -15,9 +15,17 @@ import {colors} from '../../constants/color/colors';
 import {images} from '../../constants/images/image';
 
 export default function ChatScreen() {
-  const [typing, setTyping] = useState(false);
   const [input, setInput] = useState('');
+  const [messages, setMessages] = useState([]); // State to store chat messages
   const image = data[0];
+
+  const sendMessage = () => {
+    if (input.trim()) {
+      setMessages([...messages, input]); // Add the input message to the array
+      setInput(''); // Clear the input field after sending the message
+    }
+  };
+
   return (
     <ImageBackground source={images.wallpaper} style={{flex: 1}}>
       <StatusBar backgroundColor={colors.white} barStyle={'dark-content'} />
@@ -79,28 +87,32 @@ export default function ChatScreen() {
           </View>
         </View>
       </View>
-      {/* context */}
+
+      {/* Messages list */}
       <ScrollView
         contentContainerStyle={{
           justifyContent: 'flex-end',
-          alignItems: 'flex-end',
+          alignItems: 'flex-end', // Align messages to the right
           flex: 1,
           paddingBottom: 50,
           paddingRight: 20,
           paddingLeft: 20,
         }}>
-        <View
-          style={{
-            backgroundColor: '#D8FDD2',
-            borderRadius: 5,
-            alignSelf: 'flex-start',
-          }}>
-          <Text style={{padding: '2%'}}>Hello</Text>
-        </View>
-        <View style={{backgroundColor: '#D8FDD2', borderRadius: 5}}>
-          <Text style={{padding: '2%'}}>Hello</Text>
-        </View>
+        {messages.map((message, index) => (
+          <View
+            key={index}
+            style={{
+              backgroundColor: '#D8FDD2',
+              borderRadius: 5,
+              alignSelf: 'flex-end', // Align message bubbles to the right
+              marginBottom: 5,
+              padding: 10,
+            }}>
+            <Text>{message}</Text>
+          </View>
+        ))}
       </ScrollView>
+
       {/* Footer and text input */}
       <View
         style={{
@@ -145,7 +157,6 @@ export default function ChatScreen() {
                 value={input}
                 onChangeText={text => {
                   setInput(text);
-                  setTyping(true);
                 }}
               />
             </View>
@@ -195,11 +206,11 @@ export default function ChatScreen() {
           <TouchableOpacity
             style={{
               backgroundColor: colors.green,
-
               borderRadius: 100,
               alignItems: 'center',
               padding: '2%',
-            }}>
+            }}
+            onPress={sendMessage}>
             {input === '' && (
               <Image
                 source={images.mic}
@@ -209,7 +220,7 @@ export default function ChatScreen() {
                 }}
               />
             )}
-            {input != '' && (
+            {input !== '' && (
               <Image
                 source={images.messageSend}
                 style={{
