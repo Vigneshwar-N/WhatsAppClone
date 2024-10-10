@@ -98,6 +98,39 @@ export default function ChatScreen() {
           paddingRight: 20,
           paddingLeft: 20,
         }}>
+        {/* hello */}
+        <View
+          style={{
+            backgroundColor: '#D8FDD2',
+            alignSelf: 'flex-start', // Align message bubbles to the right
+            marginBottom: 5,
+            padding: 10,
+
+            borderTopRightRadius: 10, // Rounded corners on left
+            borderBottomRightRadius: 10,
+            borderBottomLeftRadius: 10,
+            position: 'relative', // Allows the triangle to be positioned relatively
+            width: '70%',
+          }}>
+          <Text>{data[0].message}</Text>
+
+          {/* Custom pointy top-right corner */}
+          <View
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: -8, // Move it to the right of the bubble
+              width: 0,
+              height: 0,
+              borderRightColor: 'transparent',
+              borderTopWidth: 10,
+              borderTopColor: '#D8FDD2', // Same as bubble color
+              borderLeftWidth: 8,
+              borderLeftColor: 'transparent',
+            }}
+          />
+        </View>
+        {/* hello */}
         {messages.map((message, index) => (
           <View
             key={index}
@@ -106,14 +139,28 @@ export default function ChatScreen() {
               alignSelf: 'flex-end', // Align message bubbles to the right
               marginBottom: 5,
               padding: 10,
-
-              // Curve only this part
-              borderTopLeftRadius: 10,
+              borderTopLeftRadius: 10, // Rounded corners on left
               borderBottomLeftRadius: 10,
               borderBottomRightRadius: 10,
-              transform: [{rotate: '0deg'}],
+              position: 'relative', // Allows the triangle to be positioned relatively
             }}>
             <Text>{message}</Text>
+
+            {/* Custom pointy top-right corner */}
+            <View
+              style={{
+                position: 'absolute',
+                top: 0,
+                right: -8, // Move it to the right of the bubble
+                width: 0,
+                height: 0,
+                borderLeftColor: 'transparent',
+                borderTopWidth: 10,
+                borderTopColor: '#D8FDD2', // Same as bubble color
+                borderRightWidth: 8,
+                borderRightColor: 'transparent',
+              }}
+            />
           </View>
         ))}
       </ScrollView>
