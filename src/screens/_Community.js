@@ -1,4 +1,11 @@
-import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {
+  Image,
+  StatusBar,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import React from 'react';
 import Header from '../components/common/_Header';
 import {colors} from '../../constants/color/colors';
@@ -8,6 +15,7 @@ import {Colors} from 'react-native/Libraries/NewAppScreen';
 export default function Community() {
   return (
     <View style={{flex: 1, backgroundColor: colors.white}}>
+      <StatusBar backgroundColor={colors.white} barStyle={'dark-content'} />
       <Header headerText={'Communities'} size={25} />
       <View style={{paddingTop: 40, paddingRight: 20, paddingLeft: 20}}>
         <Image

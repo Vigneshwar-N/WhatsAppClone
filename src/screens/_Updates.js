@@ -30,7 +30,9 @@ export default function Updates() {
       <View style={{paddingTop: 10}}>
         <Header headerText={'Updates'} size={25} search />
       </View>
-      <ScrollView style={{flex: 1, backgroundColor: colors.white}}>
+      <ScrollView
+        style={{flex: 1, backgroundColor: colors.white}}
+        showsVerticalScrollIndicator={false}>
         <View style={{paddingRight: 20, paddingLeft: 20}}>
           <Text
             style={{
@@ -99,6 +101,7 @@ export default function Updates() {
           <View style={{}}>
             <FlatList
               data={a}
+              showsVerticalScrollIndicator={false}
               scrollEnabled={false}
               renderItem={({item}) => (
                 <View>
@@ -175,6 +178,7 @@ export default function Updates() {
               style={{paddingTop: 20, paddingBottom: 20}}
               horizontal
               data={channelData}
+              showsHorizontalScrollIndicator={false}
               renderItem={({item}) => (
                 <View
                   style={{
@@ -244,13 +248,17 @@ export default function Updates() {
             bottom: 100,
             right: 10,
             backgroundColor: '#F6F5F3',
-            // borderWidth: 10,
             height: 50,
             width: 50,
-
             justifyContent: 'center',
             alignItems: 'center',
             borderRadius: 19,
+
+            shadowColor: '#000',
+            shadowOffset: {width: 5, height: 5},
+            shadowOpacity: 0.2,
+            shadowRadius: 6,
+            elevation: 10,
           }}>
           <Image
             style={{
@@ -269,10 +277,15 @@ export default function Updates() {
             backgroundColor: colors.green,
             height: 50,
             width: 50,
-
             justifyContent: 'center',
             alignItems: 'center',
             borderRadius: 19,
+
+            shadowColor: '#000',
+            shadowOffset: {width: 5, height: 5},
+            shadowOpacity: 0.2,
+            shadowRadius: 6,
+            elevation: 10,
           }}>
           <Image
             style={{

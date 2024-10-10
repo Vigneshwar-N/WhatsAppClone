@@ -38,7 +38,7 @@ export default function ChatScreen() {
             }}>
             <TouchableOpacity>
               <Image
-                style={{height: 30, width: 30}}
+                style={{height: 25, width: 25}}
                 source={images.leftArrow}
               />
             </TouchableOpacity>
@@ -64,15 +64,15 @@ export default function ChatScreen() {
           <View style={{alignItems: 'flex-end', flex: 1}}>
             <View style={{flexDirection: 'row', alignItems: 'center'}}>
               <Image
-                style={{height: 30, width: 30, right: 30}}
+                style={{height: 25, width: 25, right: 30}}
                 source={images.videoCall}
               />
               <Image
-                style={{height: 30, width: 30, right: 10}}
+                style={{height: 25, width: 25, right: 10}}
                 source={images.call}
               />
               <Image
-                style={{height: 30, width: 30}}
+                style={{height: 25, width: 25}}
                 source={images.threeDots}
               />
             </View>
@@ -108,8 +108,8 @@ export default function ChatScreen() {
               <Image
                 source={images.emoji}
                 style={{
-                  height: 25,
-                  width: 25,
+                  height: 22,
+                  width: 22,
                   alignSelf: input.length >= 30 ? 'flex-end' : 'center',
                 }}
               />
@@ -133,8 +133,8 @@ export default function ChatScreen() {
               <Image
                 source={images.attach}
                 style={{
-                  height: 25,
-                  width: 25,
+                  height: 22,
+                  width: 22,
                   alignSelf: input.length > 30 ? 'flex-end' : 'center',
                   right: input === '' ? 25 : 0,
                 }}
@@ -146,14 +146,14 @@ export default function ChatScreen() {
                     alignItems: 'center',
                     backgroundColor: '#909598',
                     borderRadius: 100,
-                    height: 25,
-                    width: 25,
+                    height: 22,
+                    width: 22,
                     right: 15,
                   }}>
                   <Text
                     style={{
                       color: colors.white,
-                      fontSize: 20,
+                      fontSize: 15,
                       fontWeight: 'bold',
                     }}>
                     ₹
@@ -164,8 +164,8 @@ export default function ChatScreen() {
                 <Image
                   source={images.grayCamera}
                   style={{
-                    height: 25,
-                    width: 25,
+                    height: 22,
+                    width: 22,
                   }}
                 />
               )}
@@ -183,8 +183,8 @@ export default function ChatScreen() {
               <Image
                 source={images.mic}
                 style={{
-                  height: 25,
-                  width: 25,
+                  height: 22,
+                  width: 22,
                 }}
               />
             )}
@@ -192,8 +192,8 @@ export default function ChatScreen() {
               <Image
                 source={images.messageSend}
                 style={{
-                  height: 25,
-                  width: 25,
+                  height: 22,
+                  width: 22,
                   alignSelf: 'center',
                   left: 3,
                 }}

@@ -57,7 +57,7 @@ export default function Header({
             style={{
               height: !size ? ph(20) : ph(size),
               width: !size ? pw(20) : pw(size),
-              right: pw(20),
+              right: pw(30),
             }}
             source={images.camera}
           />

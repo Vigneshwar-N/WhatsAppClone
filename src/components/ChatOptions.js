@@ -10,23 +10,29 @@ export default function ChatOptions() {
   const [Two, setTwo] = useState(false);
   const [Three, setThree] = useState(false);
   const [Four, setFour] = useState(false);
-  function Toggle(params) {
-    switch ('All') {
-      case 'All':
-        return setOne(true), setTwo(false), setThree(false), setFour(false);
-
-      case 'Unread':
-        return setOne(true), setTwo(false), setThree(false), setFour(false);
-
-      case 'Favorites':
-        return setOne(true), setTwo(false), setThree(false), setFour(false);
-
-      case 'Groups':
-        return setOne(true), setTwo(false), setThree(false), setFour(false);
-
-      default:
-        one;
-    }
+  function All() {
+    setOne(true);
+    setTwo(false);
+    setThree(false);
+    setFour(false);
+  }
+  function Unread() {
+    setOne(false);
+    setTwo(true);
+    setThree(false);
+    setFour(false);
+  }
+  function Favorites() {
+    setOne(false);
+    setTwo(false);
+    setThree(true);
+    setFour(false);
+  }
+  function Groups() {
+    setOne(false);
+    setTwo(false);
+    setThree(false);
+    setFour(true);
   }
   return (
     <View>
@@ -39,7 +45,7 @@ export default function ChatOptions() {
         }}>
         <TouchableOpacity
           onPress={() => {
-            Toggle('All');
+            All();
           }}>
           <Text
             style={{
@@ -57,7 +63,7 @@ export default function ChatOptions() {
 
         <TouchableOpacity
           onPress={() => {
-            Toggle('Unread');
+            Unread();
           }}>
           <Text
             style={{
@@ -73,7 +79,7 @@ export default function ChatOptions() {
 
         <TouchableOpacity
           onPress={() => {
-            Toggle('Favorites');
+            Favorites();
           }}>
           <Text
             style={{
@@ -89,7 +95,7 @@ export default function ChatOptions() {
 
         <TouchableOpacity
           onPress={() => {
-            Toggle('Groups');
+            Groups();
           }}>
           <Text
             style={{
