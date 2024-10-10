@@ -9,15 +9,16 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import React, {useContext, useState} from 'react';
+import React, {useState} from 'react';
 import {data} from '../../constants/data/list';
 import {colors} from '../../constants/color/colors';
 import {images} from '../../constants/images/image';
 import {ph, pw} from '../../utils/responsive';
-import {ChatContext} from '../../Hooks/UseContext';
 
-export default function ChatScreen() {
-  const {selectedChat} = useContext(ChatContext);
+export default function ChatScreen({navigation}) {
+  function ToChats() {
+    navigation.navigate('Chats');
+  }
   const [input, setInput] = useState('');
   const [messages, setMessages] = useState([]);
   const image = data[0];
@@ -48,14 +49,17 @@ export default function ChatScreen() {
               alignItems: 'center',
               justifyContent: 'space-between',
             }}>
-            <TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => {
+                ToChats();
+              }}>
               <Image
                 style={{height: ph(25), width: pw(25)}}
                 source={images.leftArrow}
               />
             </TouchableOpacity>
             <Image
-              source={{uri: selectedChat.imageUri}}
+              source={{uri: image.imageUri}}
               style={{
                 height: ph(50),
                 width: pw(50),
@@ -70,7 +74,7 @@ export default function ChatScreen() {
                   fontSize: ph(18),
                   fontWeight: 'bold',
                 }}>
-                {selectedChat.name}
+                {image.name}
               </Text>
               <Text
                 style={{
@@ -78,7 +82,7 @@ export default function ChatScreen() {
                   color: colors.black,
                   fontWeight: '500',
                 }}>
-                last seen {selectedChat.lastSeen} at {selectedChat.time}
+                last seen {image.lastSeen} at {image.time}
               </Text>
             </View>
           </View>
@@ -124,7 +128,7 @@ export default function ChatScreen() {
             position: 'relative',
             width: '70%',
           }}>
-          <Text>{selectedChat.message}</Text>
+          <Text>{data[0].message}</Text>
 
           {/* Custom pointy top-right corner */}
           <View

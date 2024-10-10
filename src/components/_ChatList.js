@@ -6,14 +6,15 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import React, {useContext} from 'react';
+import React from 'react';
 import {colors} from '../../constants/color/colors';
 import {data} from '../../constants/data/list';
 import {ph, pw} from '../../utils/responsive';
-import {ChatContext} from '../../Hooks/UseContext';
 
 export default function ChatList({navigation}) {
-  const {selectedChat, setSelectedChat} = useContext(ChatContext);
+  function ToChatScreen() {
+    navigation.navigate('ChatScreen');
+  }
   return (
     <View
       style={{paddingRight: pw(20), paddingLeft: pw(20), paddingTop: ph(20)}}>
@@ -23,15 +24,14 @@ export default function ChatList({navigation}) {
         data={data}
         renderItem={({item}) => (
           <TouchableOpacity
+            onPress={() => {
+              ToChatScreen();
+            }}
             style={{
               flexDirection: 'row',
               alignItems: 'center',
               paddingTop: ph(5),
               paddingBottom: ph(5),
-            }}
-            onPress={() => {
-              setSelectedChat(item);
-              navigation.navigate('ChatScreen');
             }}>
             <Image
               style={{
