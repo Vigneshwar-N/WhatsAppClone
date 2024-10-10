@@ -5,12 +5,13 @@ import Header from './src/components/common/_Header';
 import StackNav from './src/navigation/StackNav';
 import {NavigationContainer} from '@react-navigation/native';
 import {ChatContext} from './Hooks/UseContext';
+import BottomTab from './src/navigation/BottomTab';
 
 export default function App() {
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: '#FFF'}}>
       <NavigationContainer>
-        <StackNav />
+        <BottomTab />
       </NavigationContainer>
     </SafeAreaView>
   );

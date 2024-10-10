@@ -10,9 +10,9 @@ export default function StackNav() {
   return (
     <View style={{flex: 1}}>
       <Stack.Navigator
-        initialRouteName="Chats"
+        initialRouteName="Home"
         screenOptions={{headerShown: false}}>
-        <Stack.Screen name="Chats" component={_Chats} />
+        <Stack.Screen name="Home" component={_Chats} />
         <Stack.Screen name="ChatScreen" component={ChatScreen} />
       </Stack.Navigator>
     </View>

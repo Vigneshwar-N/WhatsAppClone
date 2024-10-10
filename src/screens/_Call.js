@@ -120,7 +120,7 @@ export default function Call() {
       <View
         style={{
           position: 'relative',
-          top: ph(450), // Adjusted for responsiveness
+          top: ph(380), // Adjusted for responsiveness
         }}>
         <TouchableOpacity
           style={{
