@@ -10,5 +10,6 @@ import ChatScreen from './src/screens/_ChatScreen';
 import _Chats from './src/screens/_Chats';
 import Community from './src/screens/_Community';
 import Splash from './src/screens/_Splash';
+import BottomSheet from './src/navigation/BottomSheet';
 
-AppRegistry.registerComponent(appName, () => Splash);
+AppRegistry.registerComponent(appName, () => BottomSheet);
