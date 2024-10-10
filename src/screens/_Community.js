@@ -10,72 +10,72 @@ import React from 'react';
 import Header from '../components/common/_Header';
 import {colors} from '../../constants/color/colors';
 import {images} from '../../constants/images/image';
-import {Colors} from 'react-native/Libraries/NewAppScreen';
+import {ph, pw} from '../../utils/responsive';
 
 export default function Community() {
   return (
     <View style={{flex: 1, backgroundColor: colors.white}}>
       <StatusBar backgroundColor={colors.white} barStyle={'dark-content'} />
       <Header headerText={'Communities'} size={25} />
-      <View style={{paddingTop: 40, paddingRight: 20, paddingLeft: 20}}>
+      <View
+        style={{paddingTop: ph(40), paddingRight: pw(20), paddingLeft: pw(20)}}>
         <Image
           source={images.community}
           style={{
             alignSelf: 'center',
-            height: 200,
-            width: 200,
+            height: ph(200),
+            width: pw(200),
             borderRadius: 30,
           }}
         />
         <Text
           style={{
-            paddingTop: 25,
+            paddingTop: ph(25),
             alignSelf: 'center',
-            fontSize: 17,
+            fontSize: ph(17),
             color: colors.black,
             fontWeight: '600',
           }}>
-          Stay connect with a Community
+          Stay connected with a Community
         </Text>
         <Text
           style={{
-            paddingTop: 10,
+            paddingTop: ph(10),
             alignSelf: 'center',
-            fontSize: 13,
+            fontSize: ph(13),
             color: colors.black,
           }}>
-          Community bring members together in topic-based group, and make easy
-          to get admin announcements. Any community you're added to will appear
-          here.
+          Communities bring members together in topic-based groups and make it
+          easy to get admin announcements. Any community you're added to will
+          appear here.
         </Text>
         <TouchableOpacity
           style={{
             flexDirection: 'row',
             alignItems: 'center',
             justifyContent: 'center',
-            paddingTop: 20,
+            paddingTop: ph(20),
           }}>
           <Text
             style={{
-              fontSize: 15,
+              fontSize: ph(15),
               color: colors.green,
             }}>
             See example communities
           </Text>
           <Image
-            style={{height: 12, width: 12, top: 1, left: 4}}
+            style={{height: ph(12), width: pw(12), top: 1, left: pw(4)}}
             source={images.rightArrow}
           />
         </TouchableOpacity>
 
         <TouchableOpacity
           style={{
-            paddingHorizontal: '10%',
-            paddingVertical: '3%',
+            paddingHorizontal: pw(20), // 10% of the screen width
+            paddingVertical: ph(3),
             backgroundColor: colors.green,
-            marginTop: 40,
+            marginTop: ph(40),
             borderRadius: 50,
-            // alignSelf: 'center',
             alignItems: 'center',
             alignSelf: 'center',
             justifyContent: 'center',

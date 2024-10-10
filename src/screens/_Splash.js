@@ -2,6 +2,7 @@ import {Image, StatusBar, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {colors} from '../../constants/color/colors';
 import {images} from '../../constants/images/image';
+import {ph, pw} from '../../utils/responsive';
 
 export default function Splash() {
   return (
@@ -9,31 +10,37 @@ export default function Splash() {
       <StatusBar backgroundColor={colors.white} barStyle={'dark-content'} />
       <View
         style={{flex: 0.5, alignItems: 'center', justifyContent: 'flex-end'}}>
-        <Image source={images.whatsappLogo} style={{height: 110, width: 110}} />
+        <Image
+          source={images.whatsappLogo}
+          style={{height: ph(110), width: pw(110)}}
+        />
       </View>
       <View
         style={{
           flex: 0.5,
           justifyContent: 'flex-end',
           alignItems: 'center',
-          bottom: 100,
+          bottom: ph(100), // Adjusted for responsiveness
         }}>
-        <Text style={{color: '#848C97', fontSize: 15}}>from </Text>
+        <Text style={{color: '#848C97', fontSize: ph(15)}}>from </Text>
         <View
           style={{
             flexDirection: 'row',
             alignItems: 'center',
             alignSelf: 'center',
-            right: 10,
-            top: 5,
+            right: pw(10), // Adjusted for responsiveness
+            top: ph(5), // Adjusted for responsiveness
           }}>
-          <Image source={images.metaLogo} style={{height: 25, width: 25}} />
+          <Image
+            source={images.metaLogo}
+            style={{height: ph(25), width: pw(25)}}
+          />
           <Text
             style={{
               color: '#24D465',
-              fontSize: 20,
+              fontSize: ph(20),
               fontWeight: '800',
-              left: 5,
+              left: pw(5), // Adjusted for responsiveness
             }}>
             Meta
           </Text>

@@ -13,16 +13,17 @@ import React, {useState} from 'react';
 import {data} from '../../constants/data/list';
 import {colors} from '../../constants/color/colors';
 import {images} from '../../constants/images/image';
+import {ph, pw} from '../../utils/responsive';
 
 export default function ChatScreen() {
   const [input, setInput] = useState('');
-  const [messages, setMessages] = useState([]); // State to store chat messages
+  const [messages, setMessages] = useState([]);
   const image = data[0];
 
   const sendMessage = () => {
     if (input.trim()) {
-      setMessages([...messages, input]); // Add the input message to the array
-      setInput(''); // Clear the input field after sending the message
+      setMessages([...messages, input]);
+      setInput('');
     }
   };
 
@@ -31,13 +32,14 @@ export default function ChatScreen() {
       <StatusBar backgroundColor={colors.white} barStyle={'dark-content'} />
       <View
         style={{
-          paddingRight: 10,
-          paddingLeft: 10,
-          paddingTop: 10,
-          paddingBottom: 5,
+          paddingRight: pw(10),
+          paddingLeft: pw(10),
+          paddingTop: ph(10),
+          paddingBottom: ph(5),
           backgroundColor: colors.white,
         }}>
-        <View style={{height: 50, flexDirection: 'row', alignItems: 'center'}}>
+        <View
+          style={{height: ph(50), flexDirection: 'row', alignItems: 'center'}}>
           <View
             style={{
               flexDirection: 'row',
@@ -46,22 +48,31 @@ export default function ChatScreen() {
             }}>
             <TouchableOpacity>
               <Image
-                style={{height: 25, width: 25}}
+                style={{height: ph(25), width: pw(25)}}
                 source={images.leftArrow}
               />
             </TouchableOpacity>
             <Image
               source={{uri: image.imageUri}}
-              style={{height: 50, width: 50, borderRadius: 100, left: 5}}
+              style={{
+                height: ph(50),
+                width: pw(50),
+                borderRadius: 100,
+                left: pw(5),
+              }}
             />
-            <View style={{left: 15}}>
+            <View style={{left: pw(15)}}>
               <Text
-                style={{color: colors.black, fontSize: 18, fontWeight: 'bold'}}>
+                style={{
+                  color: colors.black,
+                  fontSize: ph(18),
+                  fontWeight: 'bold',
+                }}>
                 {image.name}
               </Text>
               <Text
                 style={{
-                  fontSize: 11,
+                  fontSize: ph(11),
                   color: colors.black,
                   fontWeight: '500',
                 }}>
@@ -72,15 +83,15 @@ export default function ChatScreen() {
           <View style={{alignItems: 'flex-end', flex: 1}}>
             <View style={{flexDirection: 'row', alignItems: 'center'}}>
               <Image
-                style={{height: 25, width: 25, right: 30}}
+                style={{height: ph(25), width: pw(25), right: pw(30)}}
                 source={images.videoCall}
               />
               <Image
-                style={{height: 25, width: 25, right: 10}}
+                style={{height: ph(25), width: pw(25), right: pw(10)}}
                 source={images.call}
               />
               <Image
-                style={{height: 25, width: 25}}
+                style={{height: ph(25), width: pw(25)}}
                 source={images.threeDots}
               />
             </View>
@@ -92,24 +103,23 @@ export default function ChatScreen() {
       <ScrollView
         contentContainerStyle={{
           justifyContent: 'flex-end',
-          alignItems: 'flex-end', // Align messages to the right
+          alignItems: 'flex-end',
           flex: 1,
-          paddingBottom: 50,
-          paddingRight: 20,
-          paddingLeft: 20,
+          paddingBottom: ph(50),
+          paddingRight: pw(20),
+          paddingLeft: pw(20),
         }}>
         {/* hello */}
         <View
           style={{
             backgroundColor: '#D8FDD2',
-            alignSelf: 'flex-start', // Align message bubbles to the right
-            marginBottom: 5,
-            padding: 10,
-
-            borderTopRightRadius: 10, // Rounded corners on left
+            alignSelf: 'flex-start',
+            marginBottom: ph(5),
+            padding: ph(10),
+            borderTopRightRadius: 10,
             borderBottomRightRadius: 10,
             borderBottomLeftRadius: 10,
-            position: 'relative', // Allows the triangle to be positioned relatively
+            position: 'relative',
             width: '70%',
           }}>
           <Text>{data[0].message}</Text>
@@ -119,30 +129,31 @@ export default function ChatScreen() {
             style={{
               position: 'absolute',
               top: 0,
-              left: -8, // Move it to the right of the bubble
+              left: -8,
               width: 0,
               height: 0,
               borderRightColor: 'transparent',
-              borderTopWidth: 10,
-              borderTopColor: '#D8FDD2', // Same as bubble color
+              borderTopWidth: ph(10),
+              borderTopColor: '#D8FDD2',
               borderLeftWidth: 8,
               borderLeftColor: 'transparent',
             }}
           />
         </View>
-        {/* hello */}
+        {/* Messages from users */}
         {messages.map((message, index) => (
           <View
             key={index}
             style={{
               backgroundColor: '#D8FDD2',
-              alignSelf: 'flex-end', // Align message bubbles to the right
-              marginBottom: 5,
-              padding: 10,
-              borderTopLeftRadius: 10, // Rounded corners on left
+              alignSelf: 'flex-end',
+              marginBottom: ph(5),
+              padding: ph(10),
+              borderTopLeftRadius: 10,
               borderBottomLeftRadius: 10,
               borderBottomRightRadius: 10,
-              position: 'relative', // Allows the triangle to be positioned relatively
+              position: 'relative',
+              width: '70%',
             }}>
             <Text>{message}</Text>
 
@@ -155,7 +166,7 @@ export default function ChatScreen() {
                 width: 0,
                 height: 0,
                 borderLeftColor: 'transparent',
-                borderTopWidth: 10,
+                borderTopWidth: ph(10),
                 borderTopColor: '#D8FDD2', // Same as bubble color
                 borderRightWidth: 8,
                 borderRightColor: 'transparent',
@@ -168,9 +179,9 @@ export default function ChatScreen() {
       {/* Footer and text input */}
       <View
         style={{
-          paddingRight: 10,
-          paddingLeft: 10,
-          marginBottom: 5,
+          paddingRight: pw(10),
+          paddingLeft: pw(10),
+          marginBottom: ph(5),
         }}>
         <View
           style={{
@@ -192,16 +203,16 @@ export default function ChatScreen() {
               <Image
                 source={images.emoji}
                 style={{
-                  height: 22,
-                  width: 22,
+                  height: ph(22),
+                  width: pw(22),
                   alignSelf: input.length >= 30 ? 'flex-end' : 'center',
                 }}
               />
               <TextInput
                 placeholder="Message"
                 style={{
-                  width: input === '' ? 172 : 247,
-                  fontSize: 16,
+                  width: input === '' ? pw(172) : pw(247),
+                  fontSize: ph(16),
                   padding: 0,
                   left: 3,
                 }}
@@ -216,10 +227,10 @@ export default function ChatScreen() {
               <Image
                 source={images.attach}
                 style={{
-                  height: 22,
-                  width: 22,
+                  height: ph(22),
+                  width: pw(22),
                   alignSelf: input.length > 30 ? 'flex-end' : 'center',
-                  right: input === '' ? 25 : 0,
+                  right: input === '' ? pw(25) : 0,
                 }}
               />
               {input === '' && (
@@ -229,14 +240,14 @@ export default function ChatScreen() {
                     alignItems: 'center',
                     backgroundColor: '#909598',
                     borderRadius: 100,
-                    height: 22,
-                    width: 22,
-                    right: 15,
+                    height: ph(22),
+                    width: ph(22),
+                    right: pw(15),
                   }}>
                   <Text
                     style={{
                       color: colors.white,
-                      fontSize: 15,
+                      fontSize: ph(15),
                       fontWeight: 'bold',
                     }}>
                     ₹
@@ -247,14 +258,14 @@ export default function ChatScreen() {
                 <Image
                   source={images.grayCamera}
                   style={{
-                    height: 22,
-                    width: 22,
+                    height: ph(22),
+                    width: ph(22),
                   }}
                 />
               )}
             </View>
           </View>
-          {/* send */}
+          {/* Send Button */}
           <TouchableOpacity
             style={{
               backgroundColor: colors.green,
@@ -267,8 +278,8 @@ export default function ChatScreen() {
               <Image
                 source={images.mic}
                 style={{
-                  height: 22,
-                  width: 22,
+                  height: ph(22),
+                  width: ph(22),
                 }}
               />
             )}
@@ -276,8 +287,8 @@ export default function ChatScreen() {
               <Image
                 source={images.messageSend}
                 style={{
-                  height: 22,
-                  width: 22,
+                  height: ph(22),
+                  width: ph(22),
                   alignSelf: 'center',
                   left: 3,
                 }}

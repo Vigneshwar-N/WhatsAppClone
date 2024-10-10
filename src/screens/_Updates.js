@@ -12,35 +12,34 @@ import React from 'react';
 import Header from '../components/common/_Header';
 import {colors} from '../../constants/color/colors';
 import {data} from '../../constants/data/list';
-import {wp} from '../../utils/responsive';
 import {channelData} from '../../constants/data/channelData';
 import {images} from '../../constants/images/image';
+import {ph, pw} from '../../utils/responsive';
 
 export default function Updates() {
   const image = data[0];
   const a = data.slice(1, 10);
-  const ids = a.map(item => item.id); // Extract the 'id' from each element
+  const ids = a.map(item => item.id);
 
   console.log(ids);
 
   return (
     <View style={{flex: 1, backgroundColor: '#FFF'}}>
       <StatusBar backgroundColor={colors.white} barStyle={'dark-content'} />
-
-      <View style={{paddingTop: 10}}>
+      <View style={{paddingTop: ph(10)}}>
         <Header headerText={'Updates'} size={25} search />
       </View>
       <ScrollView
         style={{flex: 1, backgroundColor: colors.white}}
         showsVerticalScrollIndicator={false}>
-        <View style={{paddingRight: 20, paddingLeft: 20}}>
+        <View style={{paddingRight: pw(20), paddingLeft: pw(20)}}>
           <Text
             style={{
               color: colors.black,
               fontWeight: 'bold',
-              fontSize: 20,
-              paddingTop: 40,
-              paddingBottom: 20,
+              fontSize: ph(20),
+              paddingTop: ph(40),
+              paddingBottom: ph(20),
             }}>
             Status
           </Text>
@@ -49,11 +48,11 @@ export default function Updates() {
             style={{
               flexDirection: 'row',
               alignItems: 'center',
-              paddingBottom: 30,
+              paddingBottom: ph(30),
             }}>
             <Image
               source={{uri: image.imageUri}}
-              style={{height: 60, width: 60, borderRadius: 100}}
+              style={{height: ph(60), width: pw(60), borderRadius: 100}}
             />
             <View
               style={{
@@ -61,113 +60,120 @@ export default function Updates() {
                 borderRadius: 100,
                 justifyContent: 'center',
                 alignItems: 'center',
-                height: 30,
-                width: 30,
-                right: 25,
-                bottom: -18,
+                height: ph(30),
+                width: ph(30),
+                right: pw(25),
+                bottom: ph(-18),
               }}>
               <Text
                 style={{
                   color: colors.white,
-                  fontSize: 15,
+                  fontSize: ph(15),
                   fontWeight: 'bold',
                 }}>
                 +
               </Text>
             </View>
-            <View style={{right: 10}}>
+            <View style={{right: pw(10)}}>
               <Text
-                style={{fontSize: 18, fontWeight: 'bold', color: colors.black}}>
+                style={{
+                  fontSize: ph(18),
+                  fontWeight: 'bold',
+                  color: colors.black,
+                }}>
                 My Status
               </Text>
-              <Text style={{fontSize: 14, color: colors.gray}}>
+              <Text style={{fontSize: ph(14), color: colors.gray}}>
                 Tap to add status update
               </Text>
             </View>
           </View>
         </View>
-        {/* others */}
+        {/* Others */}
         <View
           style={{
-            paddingRight: 20,
-            paddingLeft: 20,
+            paddingRight: pw(20),
+            paddingLeft: pw(20),
             borderBottomWidth: 1,
             borderBottomColor: colors.gray,
-            paddingBottom: 20,
+            paddingBottom: ph(20),
           }}>
-          <Text style={{paddingBottom: 20, fontSize: 18, color: colors.gray}}>
+          <Text
+            style={{
+              paddingBottom: ph(20),
+              fontSize: ph(18),
+              color: colors.gray,
+            }}>
             Recent updates
           </Text>
-          <View style={{}}>
-            <FlatList
-              data={a}
-              showsVerticalScrollIndicator={false}
-              scrollEnabled={false}
-              renderItem={({item}) => (
-                <View>
+          <FlatList
+            data={a}
+            showsVerticalScrollIndicator={false}
+            scrollEnabled={false}
+            renderItem={({item}) => (
+              <View>
+                <View
+                  style={{
+                    flexDirection: 'row',
+                    alignItems: 'center',
+                    paddingVertical: ph(8),
+                  }}>
+                  {/* Image */}
                   <View
                     style={{
-                      flexDirection: 'row',
-                      alignItems: 'center',
-                      paddingVertical: 8,
+                      borderWidth: 5,
+                      borderColor: colors.green,
+                      borderRadius: 100,
+                      padding: 1,
                     }}>
-                    {/* Image */}
-                    <View
+                    <Image
+                      source={{uri: item.imageUri}}
                       style={{
-                        borderWidth: 5,
-                        borderColor: colors.green,
+                        height: ph(60),
+                        width: pw(60),
                         borderRadius: 100,
-                        padding: 1,
-                      }}>
-                      <Image
-                        source={{uri: item.imageUri}}
-                        style={{
-                          height: 60,
-                          width: 60,
-                          borderRadius: 100,
-                        }}
-                      />
-                    </View>
-                    {/* Text */}
-                    <View style={{left: 13}}>
-                      <Text style={{fontSize: 20, color: colors.black}}>
-                        {item.name}
-                      </Text>
-                      <Text style={{fontSize: 16, color: colors.gray}}>
-                        {item.time}
-                      </Text>
-                    </View>
+                      }}
+                    />
+                  </View>
+                  {/* Text */}
+                  <View style={{left: pw(13)}}>
+                    <Text style={{fontSize: ph(20), color: colors.black}}>
+                      {item.name}
+                    </Text>
+                    <Text style={{fontSize: ph(16), color: colors.gray}}>
+                      {item.time}
+                    </Text>
                   </View>
                 </View>
-              )}
-            />
-          </View>
+              </View>
+            )}
+          />
         </View>
         {/* Channels */}
         <View
           style={{
-            paddingRight: 20,
-            paddingLeft: 20,
-            paddingTop: 20,
-            paddingBottom: 100,
+            paddingRight: pw(20),
+            paddingLeft: pw(20),
+            paddingTop: ph(20),
+            paddingBottom: ph(100),
           }}>
           <Text
             style={{
-              paddingTop: 15,
+              paddingTop: ph(15),
               color: colors.black,
               fontWeight: '500',
-              fontSize: 20,
-              paddingBottom: 10,
+              fontSize: ph(20),
+              paddingBottom: ph(10),
             }}>
             Channels
           </Text>
           <Text
             style={{
               color: colors.gray,
-              fontSize: 14,
-              paddingRight: 3,
-              paddingLeft: 3,
-              paddingBottom: 10,
+              fontSize: ph(14),
+              paddingRight: pw(3),
+              paddingLeft: pw(3),
+              paddingBottom: ph(10),
             }}>
             Stay updated on topics that matter to you. Find channels to follow
             below.
@@ -175,7 +181,7 @@ export default function Updates() {
           {/* FlatList */}
           <View>
             <FlatList
-              style={{paddingTop: 20, paddingBottom: 20}}
+              style={{paddingTop: ph(20), paddingBottom: ph(20)}}
               horizontal
               data={channelData}
               showsHorizontalScrollIndicator={false}
@@ -185,32 +191,34 @@ export default function Updates() {
                     borderWidth: 1,
                     alignItems: 'center',
                     justifyContent: 'space-between',
-                    marginHorizontal: 5,
-                    padding: 10,
-                    height: 180,
-                    width: 150,
+                    marginHorizontal: pw(5),
+                    padding: pw(10),
+                    height: ph(180),
+                    width: pw(150),
                     borderColor: colors.gray,
                     borderRadius: 20,
                   }}>
                   <Image
                     style={{
-                      height: 80,
-                      width: 80,
+                      height: ph(80),
+                      width: pw(80),
                       borderRadius: 100,
                     }}
                     source={{uri: item.image}}
                   />
-                  <Text style={{fontSize: 15, color: colors.black}}>
+                  <Text style={{fontSize: ph(15), color: colors.black}}>
                     {item.name}
                   </Text>
                   <View
                     style={{
-                      padding: 5,
-                      paddingHorizontal: 10,
+                      padding: ph(5),
+                      paddingHorizontal: pw(10),
                       borderRadius: 25,
                       backgroundColor: '#D8FDD2',
                     }}>
-                    <Text style={{fontSize: 15, color: '#14613F'}}>Follow</Text>
+                    <Text style={{fontSize: ph(15), color: '#14613F'}}>
+                      Follow
+                    </Text>
                   </View>
                 </View>
               )}
@@ -221,16 +229,20 @@ export default function Updates() {
           <TouchableOpacity
             style={{
               backgroundColor: colors.green,
-              paddingHorizontal: '5%',
-              paddingVertical: '4%',
+              paddingHorizontal: pw(20), // Adjust for responsive width
+              paddingVertical: ph(4), // Adjust for responsive height
               alignSelf: 'flex-start',
               alignItems: 'center',
               justifyContent: 'center',
               borderRadius: 50,
-              marginTop: 30,
+              marginTop: ph(30),
             }}>
             <Text
-              style={{color: colors.white, fontSize: 15, fontWeight: '600'}}>
+              style={{
+                color: colors.white,
+                fontSize: ph(15),
+                fontWeight: '600',
+              }}>
               Explore more
             </Text>
           </TouchableOpacity>
@@ -238,22 +250,18 @@ export default function Updates() {
       </ScrollView>
 
       {/* Overlay Images */}
-      <View
-        style={{
-          position: 'relative',
-        }}>
+      <View style={{position: 'relative'}}>
         <View
           style={{
             position: 'absolute',
-            bottom: 100,
-            right: 10,
+            bottom: ph(100),
+            right: pw(10),
             backgroundColor: '#F6F5F3',
-            height: 50,
-            width: 50,
+            height: ph(50),
+            width: ph(50),
             justifyContent: 'center',
             alignItems: 'center',
             borderRadius: 19,
-
             shadowColor: '#000',
             shadowOffset: {width: 5, height: 5},
             shadowOpacity: 0.2,
@@ -262,8 +270,8 @@ export default function Updates() {
           }}>
           <Image
             style={{
-              height: 20,
-              width: 20,
+              height: ph(20),
+              width: ph(20),
             }}
             resizeMode="contain"
             source={images.pencil}
@@ -272,15 +280,14 @@ export default function Updates() {
         <View
           style={{
             position: 'absolute',
-            bottom: 35,
-            right: 10,
+            bottom: ph(35),
+            right: pw(10),
             backgroundColor: colors.green,
-            height: 50,
-            width: 50,
+            height: ph(50),
+            width: ph(50),
             justifyContent: 'center',
             alignItems: 'center',
             borderRadius: 19,
-
             shadowColor: '#000',
             shadowOffset: {width: 5, height: 5},
             shadowOpacity: 0.2,
@@ -289,8 +296,8 @@ export default function Updates() {
           }}>
           <Image
             style={{
-              height: 20,
-              width: 20,
+              height: ph(20),
+              width: ph(20),
             }}
             source={images.whiteCam}
           />

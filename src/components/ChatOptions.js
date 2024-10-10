@@ -1,15 +1,18 @@
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React, {useState} from 'react';
+import {ph, pw} from '../../utils/responsive';
 
 export default function ChatOptions() {
   const bg = '#F6F5F3';
   const colors = '#BBBAB8';
   const change = '#D8FDD2';
   const cText = '#528058';
+
   const [one, setOne] = useState(false);
   const [Two, setTwo] = useState(false);
   const [Three, setThree] = useState(false);
   const [Four, setFour] = useState(false);
+
   function All() {
     setOne(true);
     setTwo(false);
@@ -34,42 +37,37 @@ export default function ChatOptions() {
     setThree(false);
     setFour(true);
   }
+
   return (
     <View>
       <View
         style={{
           flexDirection: 'row',
-          paddingTop: 10,
-          paddingRight: 10,
-          paddingLeft: 20,
+          paddingTop: ph(10),
+          paddingRight: pw(10),
+          paddingLeft: pw(20),
         }}>
-        <TouchableOpacity
-          onPress={() => {
-            All();
-          }}>
+        <TouchableOpacity onPress={All}>
           <Text
             style={{
-              padding: '2%',
-              borderRadius: 20,
-              marginHorizontal: 5,
+              padding: ph(2),
+              borderRadius: pw(20),
+              marginHorizontal: pw(5),
               backgroundColor: one ? change : bg,
               color: one ? cText : colors,
-              width: 50,
+              width: pw(50),
               textAlign: 'center',
             }}>
             All
           </Text>
         </TouchableOpacity>
 
-        <TouchableOpacity
-          onPress={() => {
-            Unread();
-          }}>
+        <TouchableOpacity onPress={Unread}>
           <Text
             style={{
-              padding: '2%',
-              borderRadius: 20,
-              marginHorizontal: 5,
+              padding: ph(2),
+              borderRadius: pw(20),
+              marginHorizontal: pw(5),
               backgroundColor: Two ? change : bg,
               color: Two ? cText : colors,
             }}>
@@ -77,15 +75,12 @@ export default function ChatOptions() {
           </Text>
         </TouchableOpacity>
 
-        <TouchableOpacity
-          onPress={() => {
-            Favorites();
-          }}>
+        <TouchableOpacity onPress={Favorites}>
           <Text
             style={{
-              padding: '2%',
-              borderRadius: 20,
-              marginHorizontal: 5,
+              padding: ph(2),
+              borderRadius: pw(20),
+              marginHorizontal: pw(5),
               backgroundColor: Three ? change : bg,
               color: Three ? cText : colors,
             }}>
@@ -93,15 +88,12 @@ export default function ChatOptions() {
           </Text>
         </TouchableOpacity>
 
-        <TouchableOpacity
-          onPress={() => {
-            Groups();
-          }}>
+        <TouchableOpacity onPress={Groups}>
           <Text
             style={{
-              padding: '2%',
-              borderRadius: 20,
-              marginHorizontal: 5,
+              padding: ph(2),
+              borderRadius: pw(20),
+              marginHorizontal: pw(5),
               backgroundColor: Four ? change : bg,
               color: Four ? cText : colors,
             }}>

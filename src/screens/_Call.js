@@ -11,36 +11,40 @@ import Header from '../components/common/_Header';
 import {images} from '../../constants/images/image';
 import {colors} from '../../constants/color/colors';
 import {data} from '../../constants/data/list';
+import {ph, pw} from '../../utils/responsive';
 
 export default function Call() {
   return (
     <View style={{flex: 1, backgroundColor: colors.white}}>
       <StatusBar backgroundColor={'#FFF'} barStyle={'dark-content'} />
-      <View style={{paddingTop: 10, paddingBottom: 10}}>
+      <View style={{paddingTop: ph(10), paddingBottom: ph(10)}}>
         <Header headerText={'Calls'} size={25} search />
       </View>
       {/* Favorites */}
-      <View style={{paddingLeft: 20, paddingRight: 20}}>
+      <View style={{paddingLeft: pw(20), paddingRight: pw(20)}}>
         <Text>Favorites</Text>
         <View
           style={{
             flexDirection: 'row',
             alignItems: 'center',
-            paddingTop: 35,
-            paddingLeft: 5,
+            paddingTop: ph(35),
+            paddingLeft: pw(5),
           }}>
           <View
             style={{
               backgroundColor: colors.green,
               borderRadius: 100,
-              height: 60,
-              width: 60,
+              height: ph(60),
+              width: pw(60),
               justifyContent: 'center',
               alignItems: 'center',
             }}>
-            <Image source={images.heart} style={{height: 30, width: 30}} />
+            <Image
+              source={images.heart}
+              style={{height: ph(30), width: pw(30)}}
+            />
           </View>
-          <Text style={{left: 20, fontSize: 17, color: colors.black}}>
+          <Text style={{left: pw(20), fontSize: ph(17), color: colors.black}}>
             Add favorite
           </Text>
         </View>
@@ -48,40 +52,41 @@ export default function Call() {
       {/* History */}
       <View
         style={{
-          paddingTop: 30,
+          paddingTop: ph(30),
           borderBottomWidth: 1,
           borderBottomColor: '#F3F3F3',
-          paddingBottom: 20,
+          paddingBottom: ph(20),
         }}>
-        <View style={{paddingRight: 20, paddingLeft: 20}}>
-          <Text style={{color: colors.black, fontSize: 15}}>Recent</Text>
+        <View style={{paddingRight: pw(20), paddingLeft: pw(20)}}>
+          <Text style={{color: colors.black, fontSize: ph(15)}}>Recent</Text>
           <View
             style={{
               flexDirection: 'row',
               alignItems: 'center',
-              paddingTop: 35,
-              paddingLeft: 5,
+              paddingTop: ph(35),
+              paddingLeft: pw(5),
               justifyContent: 'space-between',
             }}>
             <View style={{flexDirection: 'row', alignItems: 'center'}}>
               <Image
                 source={{uri: data[1].imageUri}}
-                style={{height: 60, width: 60, borderRadius: 100}}
+                style={{height: ph(60), width: pw(60), borderRadius: 100}}
               />
               <View>
-                <Text style={{left: 20, fontSize: 17, color: '#8E4A5F'}}>
+                <Text
+                  style={{left: pw(20), fontSize: ph(17), color: '#8E4A5F'}}>
                   {data[1].name}
                 </Text>
                 <View
                   style={{
-                    left: 20,
+                    left: pw(20),
                     alignItems: 'center',
                     flexDirection: 'row',
-                    paddingTop: 5,
+                    paddingTop: ph(5),
                   }}>
                   <Image
                     source={images.leftDown}
-                    style={{height: 15, width: 15}}
+                    style={{height: ph(15), width: pw(15)}}
                   />
                   <Text>{data[10].time}</Text>
                 </View>
@@ -91,21 +96,21 @@ export default function Call() {
             <Image
               source={images.call}
               style={{
-                height: 25,
-                width: 25,
+                height: ph(25),
+                width: pw(25),
               }}
             />
           </View>
         </View>
       </View>
-      <View style={{paddingTop: 20, alignSelf: 'center'}}>
+      <View style={{paddingTop: ph(20), alignSelf: 'center'}}>
         <View style={{flexDirection: 'row', alignItems: 'center'}}>
-          <Image source={images.lock} style={{height: 10, width: 10}} />
-          <Text style={{color: colors.black, fontSize: 10, left: 5}}>
+          <Image source={images.lock} style={{height: ph(10), width: pw(10)}} />
+          <Text style={{color: colors.black, fontSize: ph(10), left: pw(5)}}>
             Your personal calls are
           </Text>
           <TouchableOpacity>
-            <Text style={{color: colors.green, fontSize: 10, left: 10}}>
+            <Text style={{color: colors.green, fontSize: ph(10), left: pw(10)}}>
               end-to-end encrypted
             </Text>
           </TouchableOpacity>
@@ -115,20 +120,19 @@ export default function Call() {
       <View
         style={{
           position: 'relative',
-          top: 450,
+          top: ph(450), // Adjusted for responsiveness
         }}>
         <TouchableOpacity
           style={{
             position: 'absolute',
-            bottom: 35,
-            right: 10,
+            bottom: ph(35),
+            right: pw(10),
             backgroundColor: colors.green,
-            height: 50,
-            width: 50,
+            height: ph(50),
+            width: pw(50),
             justifyContent: 'center',
             alignItems: 'center',
             borderRadius: 19,
-
             shadowColor: '#000',
             shadowOffset: {width: 5, height: 5},
             shadowOpacity: 0.2,
@@ -137,8 +141,8 @@ export default function Call() {
           }}>
           <Image
             style={{
-              height: 20,
-              width: 20,
+              height: ph(20),
+              width: pw(20),
             }}
             source={images.callPlus}
           />

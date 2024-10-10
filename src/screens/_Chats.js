@@ -16,6 +16,7 @@ import ChatOptions from '../components/ChatOptions';
 import ChatList from '../components/_ChatList';
 import {images} from '../../constants/images/image';
 import {colors} from '../../constants/color/colors';
+import {ph, pw} from '../../utils/responsive';
 
 export default function _Chats() {
   return (
@@ -37,25 +38,25 @@ export default function _Chats() {
         <View
           style={{
             position: 'absolute',
-            bottom: 100,
-            right: 12,
+            bottom: ph(100),
+            right: pw(12),
             backgroundColor: '#F6F5F3',
-            height: 45,
-            width: 45,
+            height: ph(45),
+            width: pw(45),
             justifyContent: 'center',
             alignItems: 'center',
-            borderRadius: 15,
+            borderRadius: pw(15),
 
             shadowColor: '#000',
-            shadowOffset: {width: 5, height: 5},
+            shadowOffset: {width: pw(5), height: ph(5)},
             shadowOpacity: 0.2,
             shadowRadius: 6,
             elevation: 10,
           }}>
           <Image
             style={{
-              height: 30,
-              width: 30,
+              height: ph(30),
+              width: pw(30),
             }}
             resizeMode="contain"
             source={images.MetaAilogo}
@@ -64,25 +65,25 @@ export default function _Chats() {
         <View
           style={{
             position: 'absolute',
-            bottom: 35,
-            right: 10,
+            bottom: ph(35),
+            right: pw(10),
             backgroundColor: colors.green,
-            height: 50,
-            width: 50,
+            height: ph(50),
+            width: pw(50),
             justifyContent: 'center',
             alignItems: 'center',
-            borderRadius: 19,
+            borderRadius: pw(19),
 
             shadowColor: '#000',
-            shadowOffset: {width: 5, height: 5},
+            shadowOffset: {width: pw(5), height: ph(5)},
             shadowOpacity: 0.2,
             shadowRadius: 6,
             elevation: 10,
           }}>
           <Image
             style={{
-              height: 20,
-              width: 20,
+              height: ph(20),
+              width: pw(20),
             }}
             source={images.whiteCam}
           />
