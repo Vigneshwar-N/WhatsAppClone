@@ -9,13 +9,15 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import {data} from '../../constants/data/list';
 import {colors} from '../../constants/color/colors';
 import {images} from '../../constants/images/image';
 import {ph, pw} from '../../utils/responsive';
+import {SelectedItemContext} from '../../Hooks/UseContext';
 
 export default function ChatScreen({navigation}) {
+  const {selectedItem} = useContext(SelectedItemContext); // Now selectedItem is the object
   function ToChats() {
     navigation.navigate('Home');
   }
@@ -59,7 +61,7 @@ export default function ChatScreen({navigation}) {
               />
             </TouchableOpacity>
             <Image
-              source={{uri: image.imageUri}}
+              source={{uri: selectedItem.imageUri}}
               style={{
                 height: ph(50),
                 width: pw(50),
@@ -74,7 +76,7 @@ export default function ChatScreen({navigation}) {
                   fontSize: ph(18),
                   fontWeight: 'bold',
                 }}>
-                {image.name}
+                {selectedItem.name}
               </Text>
               <Text
                 style={{
@@ -128,7 +130,7 @@ export default function ChatScreen({navigation}) {
             position: 'relative',
             width: '70%',
           }}>
-          <Text>{data[0].message}</Text>
+          <Text>{selectedItem.message}</Text>
 
           {/* Custom pointy top-right corner */}
           <View

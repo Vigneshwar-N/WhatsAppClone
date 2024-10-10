@@ -1,13 +1,15 @@
-import React, {createContext, useState} from 'react';
+import {createContext, useState} from 'react';
 
-export const ChatContext = createContext();
+const SelectedItemContext = createContext();
 
-export const ChatProvider = ({children}) => {
-  const [selectedChat, setSelectedChat] = useState(null);
+const SelectedItemProvider = ({children}) => {
+  const [selectedItem, setSelectedItem] = useState([]);
 
   return (
-    <ChatContext.Provider value={{selectedChat, setSelectedChat}}>
+    <SelectedItemContext.Provider value={{selectedItem, setSelectedItem}}>
       {children}
-    </ChatContext.Provider>
+    </SelectedItemContext.Provider>
   );
 };
+
+export {SelectedItemProvider, SelectedItemContext};

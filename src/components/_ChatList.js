@@ -6,15 +6,20 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import React from 'react';
+import React, {useContext} from 'react';
 import {colors} from '../../constants/color/colors';
 import {data} from '../../constants/data/list';
 import {ph, pw} from '../../utils/responsive';
+import {SelectedItemContext} from '../../Hooks/UseContext';
 
 export default function ChatList({navigation}) {
-  function ToChatScreen() {
+  const {setSelectedItem} = useContext(SelectedItemContext);
+
+  function ToChatScreen(item) {
     navigation.navigate('ChatScreen');
+    setSelectedItem(item); // Correctly set the selected item
   }
+
   return (
     <View
       style={{paddingRight: pw(20), paddingLeft: pw(20), paddingTop: ph(20)}}>
@@ -25,7 +30,7 @@ export default function ChatList({navigation}) {
         renderItem={({item}) => (
           <TouchableOpacity
             onPress={() => {
-              ToChatScreen();
+              ToChatScreen(item);
             }}
             style={{
               flexDirection: 'row',
@@ -39,9 +44,7 @@ export default function ChatList({navigation}) {
                 width: pw(50),
                 borderRadius: 100,
               }}
-              source={{
-                uri: item.imageUri,
-              }}
+              source={item.imageUri ? {uri: item.imageUri} : null}
             />
             <View style={{height: ph(50), paddingLeft: pw(15)}}>
               <View
@@ -51,14 +54,11 @@ export default function ChatList({navigation}) {
                   justifyContent: 'space-between',
                   width: '92%',
                 }}>
-                {/* name */}
                 <Text style={{fontSize: ph(18), color: colors.black}}>
                   {item.name}
                 </Text>
-                {/* Last seen */}
                 <Text style={{fontSize: ph(12)}}>{item.lastSeen}</Text>
               </View>
-              {/* recent text */}
               <Text style={{fontSize: ph(13), width: 200}} numberOfLines={1}>
                 {item.message}
               </Text>
