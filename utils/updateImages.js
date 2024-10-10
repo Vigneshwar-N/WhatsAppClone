@@ -2,8 +2,8 @@ const fs = require('fs');
 const path = require('path');
 
 // Define the paths
-const imagesDir = path.join(__dirname, '../assets/images');
-const outputFilePath = path.join(__dirname, '../constants/images/image.js');
+const imagesDir = path.join(__dirname, '../assets/images'); // Adjusted relative path to assets/images
+const outputFilePath = path.join(__dirname, '../constants/images/image.js'); // Adjusted relative path to image.js
 
 // Define a list of supported image extensions
 const supportedExtensions = ['.png', '.jpg', '.jpeg', '.gif', '.svg', '.webp'];
@@ -21,7 +21,7 @@ fs.readdir(imagesDir, (err, files) => {
     )
     .map(file => {
       const key = path.basename(file, path.extname(file)); // Remove file extension for the key
-      return `  ${key}: require('../../assets/images/${file}')`;
+      return `  ${key}: require('../../assets/images/${file}')`; // Adjust the require path to match folder structure
     })
     .join(',\n');
 
