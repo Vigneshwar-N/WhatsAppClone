@@ -80,8 +80,28 @@ export default function ChatScreen() {
         </View>
       </View>
       {/* context */}
-      <ScrollView></ScrollView>
-      {/* Footer */}
+      <ScrollView
+        contentContainerStyle={{
+          justifyContent: 'flex-end',
+          alignItems: 'flex-end',
+          flex: 1,
+          paddingBottom: 50,
+          paddingRight: 20,
+          paddingLeft: 20,
+        }}>
+        <View
+          style={{
+            backgroundColor: '#D8FDD2',
+            borderRadius: 5,
+            alignSelf: 'flex-start',
+          }}>
+          <Text style={{padding: '2%'}}>Hello</Text>
+        </View>
+        <View style={{backgroundColor: '#D8FDD2', borderRadius: 5}}>
+          <Text style={{padding: '2%'}}>Hello</Text>
+        </View>
+      </ScrollView>
+      {/* Footer and text input */}
       <View
         style={{
           paddingRight: 10,

@@ -10,4 +10,4 @@ import ChatScreen from './src/screens/_ChatScreen';
 import _Chats from './src/screens/_Chats';
 import Community from './src/screens/_Community';
 
-AppRegistry.registerComponent(appName, () => Updates);
+AppRegistry.registerComponent(appName, () => ChatScreen);
