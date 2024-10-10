@@ -5,6 +5,7 @@ export const images = {
   emoji: require('../../assets/images/emoji.png'),
   grayCamera: require('../../assets/images/grayCamera.png'),
   leftArrow: require('../../assets/images/leftArrow.png'),
+  rightArrow: require('../../assets/images/rightArrow.png'),
   messageSend: require('../../assets/images/messageSend.png'),
   MetaAilogo: require('../../assets/images/MetaAilogo.png'),
   mic: require('../../assets/images/mic.png'),
@@ -13,5 +14,6 @@ export const images = {
   threeDots: require('../../assets/images/threeDots.png'),
   videoCall: require('../../assets/images/videoCall.png'),
   wallpaper: require('../../assets/images/wallpaper.jpg'),
-  whiteCam: require('../../assets/images/whiteCam.png')
+  community: require('../../assets/images/community.jpg'),
+  whiteCam: require('../../assets/images/whiteCam.png'),
 };
