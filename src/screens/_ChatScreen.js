@@ -178,12 +178,12 @@ export default function ChatScreen({navigation}) {
               style={{
                 position: 'absolute',
                 top: 0,
-                right: -8, // Move it to the right of the bubble
+                right: -8, 
                 width: 0,
                 height: 0,
                 borderLeftColor: 'transparent',
                 borderTopWidth: ph(10),
-                borderTopColor: '#D8FDD2', // Same as bubble color
+                borderTopColor: '#D8FDD2', 
                 borderRightWidth: 8,
                 borderRightColor: 'transparent',
               }}
