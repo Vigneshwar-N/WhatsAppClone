@@ -151,7 +151,9 @@ export default function Settings({navigation}) {
         </View>
         {/* Add */}
         <View style={{paddingRight: 20, paddingLeft: 20}}>
-          <Text style={{paddingBottom: 10, fontSize: 15}}>Also from Meta</Text>
+          <Text style={{paddingBottom: 10, fontSize: 15, color: colors.gray}}>
+            Also from Meta
+          </Text>
 
           <FlatList
             scrollEnabled={false}

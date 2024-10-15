@@ -139,7 +139,9 @@ export default function ChatScreen({navigation}) {
             position: 'relative',
             width: '70%',
           }}>
-          <Text>{selectedItem.message}</Text>
+          <Text style={{color: colors.black, fontSize: 14}}>
+            {selectedItem.message}
+          </Text>
 
           {/* Custom pointy top-right corner */}
           <View
@@ -171,19 +173,19 @@ export default function ChatScreen({navigation}) {
               borderBottomRightRadius: 10,
               position: 'relative',
             }}>
-            <Text>{message}</Text>
+            <Text style={{color: colors.black, fontSize: 14}}>{message}</Text>
 
             {/* Custom pointy top-right corner */}
             <View
               style={{
                 position: 'absolute',
                 top: 0,
-                right: -8, 
+                right: -8,
                 width: 0,
                 height: 0,
                 borderLeftColor: 'transparent',
                 borderTopWidth: ph(10),
-                borderTopColor: '#D8FDD2', 
+                borderTopColor: '#D8FDD2',
                 borderRightWidth: 8,
                 borderRightColor: 'transparent',
               }}

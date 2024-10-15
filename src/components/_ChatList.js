@@ -59,7 +59,9 @@ export default function ChatList({navigation}) {
                 </Text>
                 <Text style={{fontSize: ph(12)}}>{item.lastSeen}</Text>
               </View>
-              <Text style={{fontSize: ph(13), width: 200}} numberOfLines={1}>
+              <Text
+                style={{fontSize: ph(13), width: 200, color: colors.gray}}
+                numberOfLines={1}>
                 {item.message}
               </Text>
             </View>
