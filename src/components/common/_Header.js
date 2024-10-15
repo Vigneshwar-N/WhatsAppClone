@@ -11,6 +11,8 @@ export default function Header({
   fontSize,
   color,
   size,
+  noDots,
+  noCamera,
 }) {
   return (
     <View style={{paddingTop: ph(10), paddingBottom: ph(10)}}>
@@ -53,16 +55,18 @@ export default function Header({
             alignItems: 'center',
             height: ph(30),
           }}>
-          <TouchableOpacity>
-            <Image
-              style={{
-                height: !size ? ph(20) : ph(size),
-                width: !size ? pw(20) : pw(size),
-                right: pw(30),
-              }}
-              source={images.camera}
-            />
-          </TouchableOpacity>
+          {!noCamera && (
+            <TouchableOpacity>
+              <Image
+                style={{
+                  height: !size ? ph(20) : ph(size),
+                  width: !size ? pw(20) : pw(size),
+                  right: pw(30),
+                }}
+                source={images.camera}
+              />
+            </TouchableOpacity>
+          )}
           <TouchableOpacity>
             {search && (
               <Image
@@ -75,15 +79,17 @@ export default function Header({
               />
             )}
           </TouchableOpacity>
-          <TouchableOpacity>
-            <Image
-              style={{
-                height: !size ? ph(20) : ph(size),
-                width: !size ? pw(20) : pw(size),
-              }}
-              source={images.threeDots}
-            />
-          </TouchableOpacity>
+          {!noDots && (
+            <TouchableOpacity>
+              <Image
+                style={{
+                  height: !size ? ph(20) : ph(size),
+                  width: !size ? pw(20) : pw(size),
+                }}
+                source={images.threeDots}
+              />
+            </TouchableOpacity>
+          )}
         </View>
       </View>
     </View>
