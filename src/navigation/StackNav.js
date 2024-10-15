@@ -6,6 +6,7 @@ import _Chats from '../screens/_Chats';
 import ChatScreen from '../screens/_ChatScreen';
 import Splash from '../screens/_Splash';
 import BottomTab from './BottomTab'; // Import only here
+import Settings from '../screens/_Settings';
 
 export default function StackNav() {
   const Stack = createNativeStackNavigator();
@@ -13,11 +14,12 @@ export default function StackNav() {
   return (
     <View style={{flex: 1}}>
       <Stack.Navigator
-        initialRouteName="Splash"
+        initialRouteName="Home"
         screenOptions={{headerShown: false}}>
         <Stack.Screen name="Splash" component={Splash} />
         <Stack.Screen name="Home" component={BottomTab} />
         <Stack.Screen name="ChatScreen" component={ChatScreen} />
+        <Stack.Screen name="Settings" component={Settings} />
       </Stack.Navigator>
     </View>
   );

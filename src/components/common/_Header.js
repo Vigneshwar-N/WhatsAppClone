@@ -13,6 +13,7 @@ export default function Header({
   size,
   noDots,
   noCamera,
+  dotPress,
 }) {
   return (
     <View style={{paddingTop: ph(10), paddingBottom: ph(10)}}>
@@ -80,7 +81,7 @@ export default function Header({
             )}
           </TouchableOpacity>
           {!noDots && (
-            <TouchableOpacity>
+            <TouchableOpacity onPress={dotPress}>
               <Image
                 style={{
                   height: !size ? ph(20) : ph(size),

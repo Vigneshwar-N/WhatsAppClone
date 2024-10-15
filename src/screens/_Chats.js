@@ -7,9 +7,11 @@ import {
   View,
   Image,
   TouchableOpacity,
+  FlatList,
+  Pressable,
 } from 'react-native';
 
-import React from 'react';
+import React, {useState} from 'react';
 
 import Header from '../components/common/_Header';
 import Search from '../components/common/Search';
@@ -18,12 +20,26 @@ import ChatList from '../components/_ChatList';
 import {images} from '../../constants/images/image';
 import {colors} from '../../constants/color/colors';
 import {ph, pw} from '../../utils/responsive';
+import {popup} from '../../constants/data/popup';
 
 export default function _Chats({navigation}) {
+  const [pop, setPop] = useState(false);
   return (
-    <View style={{backgroundColor: '#FFF', flex: 1}}>
+    <View
+      onPress={() => {
+        setPop(false);
+      }}
+      style={{backgroundColor: '#FFF', flex: 1, position: 'relative'}}>
       <StatusBar backgroundColor={'#FFF'} barStyle={'dark-content'} />
-      <Header color fontSize={25} headerText={'Whatsapp'} size={25} />
+      <Header
+        color
+        fontSize={25}
+        headerText={'Whatsapp'}
+        size={25}
+        dotPress={() => {
+          setPop(true);
+        }}
+      />
       <ScrollView
         style={{backgroundColor: colors.white}}
         showsVerticalScrollIndicator={false}>
@@ -90,6 +106,54 @@ export default function _Chats({navigation}) {
           />
         </TouchableOpacity>
       </View>
+      {pop && (
+        <View
+          style={{
+            position: 'absolute',
+            bottom: 400,
+            backgroundColor: '#FFFFFF',
+            alignSelf: 'flex-end',
+            borderRadius: 10,
+            right: 5,
+            padding: 10,
+            alignItems: 'flex-start',
+
+            elevation: 10,
+            width: '50%',
+            paddingVertical: 20,
+            paddingHorizontal: 10,
+          }}>
+          {popup.map(item => {
+            const [isPressed, setIsPressed] = useState(false);
+
+            return (
+              <TouchableOpacity
+                onPressIn={() => setIsPressed(true)}
+                onPressOut={() => setIsPressed(false)}
+                onPress={() => {
+                  if (item.title === 'Settings') {
+                    navigation.navigate('Settings');
+                  }
+                }}
+                key={item.id}
+                style={{
+                  paddingTop: 10,
+                  paddingBottom: 10,
+                  backgroundColor: isPressed ? colors.gray : colors.white,
+                  width: '100%',
+                }}>
+                <Text
+                  style={{
+                    color: colors.black,
+                    fontSize: 16,
+                  }}>
+                  {item.title}
+                </Text>
+              </TouchableOpacity>
+            );
+          })}
+        </View>
+      )}
     </View>
   );
 }
