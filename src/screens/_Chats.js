@@ -1,3 +1,4 @@
+import React, {useState} from 'react';
 import {
   SafeAreaView,
   ScrollView,
@@ -7,12 +8,8 @@ import {
   View,
   Image,
   TouchableOpacity,
-  FlatList,
   Pressable,
 } from 'react-native';
-
-import React, {useState} from 'react';
-
 import Header from '../components/common/_Header';
 import Search from '../components/common/Search';
 import ChatOptions from '../components/ChatOptions';
@@ -24,8 +21,24 @@ import {popup} from '../../constants/data/popup';
 
 export default function _Chats({navigation}) {
   const [pop, setPop] = useState(false);
+  const [pressedStates, setPressedStates] = useState(
+    new Array(popup.length).fill(false),
+  );
+
+  const handlePressIn = index => {
+    const newPressedStates = [...pressedStates];
+    newPressedStates[index] = true;
+    setPressedStates(newPressedStates);
+  };
+
+  const handlePressOut = index => {
+    const newPressedStates = [...pressedStates];
+    newPressedStates[index] = false;
+    setPressedStates(newPressedStates);
+  };
+
   return (
-    <View
+    <Pressable
       onPress={() => {
         setPop(false);
       }}
@@ -37,7 +50,7 @@ export default function _Chats({navigation}) {
         headerText={'Whatsapp'}
         size={25}
         dotPress={() => {
-          setPop(true);
+          setPop(prev => !prev);
         }}
       />
       <ScrollView
@@ -47,115 +60,118 @@ export default function _Chats({navigation}) {
         <ChatOptions />
         <ChatList navigation={navigation} />
       </ScrollView>
-      {/* Overlay Images */}
-      <View
-        style={{
-          position: 'relative',
-        }}>
-        <TouchableOpacity
-          style={{
-            position: 'absolute',
-            bottom: ph(100),
-            right: pw(12),
-            backgroundColor: '#F6F5F3',
-            height: ph(45),
-            width: pw(45),
-            justifyContent: 'center',
-            alignItems: 'center',
-            borderRadius: pw(15),
 
-            shadowColor: '#000',
-            shadowOffset: {width: pw(5), height: ph(5)},
-            shadowOpacity: 0.2,
-            shadowRadius: 6,
-            elevation: 10,
-          }}>
+      {/* Overlay Images */}
+      <View style={styles.overlayContainer}>
+        <TouchableOpacity style={styles.metaLogo}>
           <Image
-            style={{
-              height: ph(30),
-              width: pw(30),
-            }}
+            style={styles.metaLogoImage}
             resizeMode="contain"
             source={images.MetaAilogo}
           />
         </TouchableOpacity>
-        <TouchableOpacity
-          style={{
-            position: 'absolute',
-            bottom: ph(35),
-            right: pw(10),
-            backgroundColor: colors.green,
-            height: ph(50),
-            width: pw(50),
-            justifyContent: 'center',
-            alignItems: 'center',
-            borderRadius: pw(19),
 
-            shadowColor: '#000',
-            shadowOffset: {width: pw(5), height: ph(5)},
-            shadowOpacity: 0.2,
-            shadowRadius: 6,
-            elevation: 10,
-          }}>
-          <Image
-            style={{
-              height: ph(20),
-              width: pw(20),
-            }}
-            source={images.whiteCam}
-          />
+        <TouchableOpacity style={styles.cameraIcon}>
+          <Image style={styles.cameraImage} source={images.whiteCam} />
         </TouchableOpacity>
       </View>
+
+      {/* Popup menu */}
       {pop && (
-        <View
-          style={{
-            position: 'absolute',
-            bottom: 400,
-            backgroundColor: '#FFFFFF',
-            alignSelf: 'flex-end',
-            borderRadius: 10,
-            right: 5,
-            padding: 10,
-            alignItems: 'flex-start',
-
-            elevation: 10,
-            width: '50%',
-            paddingVertical: 20,
-            paddingHorizontal: 10,
-          }}>
-          {popup.map(item => {
-            const [isPressed, setIsPressed] = useState(false);
-
-            return (
-              <TouchableOpacity
-                onPressIn={() => setIsPressed(true)}
-                onPressOut={() => setIsPressed(false)}
-                onPress={() => {
-                  if (item.title === 'Settings') {
-                    navigation.navigate('Settings');
-                  }
-                }}
-                key={item.id}
-                style={{
-                  paddingTop: 10,
-                  paddingBottom: 10,
-                  backgroundColor: isPressed ? colors.gray : colors.white,
-                  width: '100%',
-                }}>
-                <Text
-                  style={{
-                    color: colors.black,
-                    fontSize: 16,
-                  }}>
-                  {item.title}
-                </Text>
-              </TouchableOpacity>
-            );
-          })}
+        <View style={styles.popupContainer}>
+          {popup.map((item, index) => (
+            <TouchableOpacity
+              key={item.id}
+              onPressIn={() => handlePressIn(index)}
+              onPressOut={() => handlePressOut(index)}
+              onPress={() => {
+                if (item.title === 'Settings') {
+                  navigation.navigate('Settings');
+                }
+                setPop(false);
+              }}
+              style={[
+                styles.popupItem,
+                {
+                  backgroundColor: pressedStates[index]
+                    ? colors.gray
+                    : colors.white,
+                },
+              ]}>
+              <Text style={styles.popupText}>{item.title}</Text>
+            </TouchableOpacity>
+          ))}
         </View>
       )}
-    </View>
+    </Pressable>
   );
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  overlayContainer: {
+    position: 'relative',
+  },
+  metaLogo: {
+    position: 'absolute',
+    bottom: ph(100),
+    right: pw(12),
+    backgroundColor: '#F6F5F3',
+    height: ph(45),
+    width: pw(45),
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: pw(15),
+    shadowColor: '#000',
+    shadowOffset: {width: pw(5), height: ph(5)},
+    shadowOpacity: 0.2,
+    shadowRadius: 6,
+    elevation: 10,
+  },
+  metaLogoImage: {
+    height: ph(30),
+    width: pw(30),
+  },
+  cameraIcon: {
+    position: 'absolute',
+    bottom: ph(35),
+    right: pw(10),
+    backgroundColor: colors.green,
+    height: ph(50),
+    width: pw(50),
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: pw(19),
+    shadowColor: '#000',
+    shadowOffset: {width: pw(5), height: ph(5)},
+    shadowOpacity: 0.2,
+    shadowRadius: 6,
+    elevation: 10,
+  },
+  cameraImage: {
+    height: ph(20),
+    width: pw(20),
+  },
+  popupContainer: {
+    position: 'absolute',
+    bottom: 400,
+    backgroundColor: '#FFFFFF',
+    alignSelf: 'flex-end',
+    borderRadius: 10,
+    right: 5,
+    padding: 10,
+    alignItems: 'flex-start',
+    elevation: 10,
+    width: '50%',
+    paddingVertical: 20,
+    paddingHorizontal: 10,
+  },
+  popupItem: {
+    paddingTop: 10,
+    paddingBottom: 10,
+    width: '100%',
+  },
+  popupText: {
+    color: colors.black,
+    fontSize: 16,
+  },
+});

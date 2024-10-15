@@ -16,9 +16,9 @@ import {images} from '../../constants/images/image';
 import {settingsData} from '../../constants/data/settings';
 import {settingsAdds} from '../../constants/data/settingsAdd';
 
-export default function Settings() {
+export default function Settings({navigation}) {
   return (
-    <View style={{flex: 1}}>
+    <View style={{flex: 1, backgroundColor: colors.white}}>
       <StatusBar backgroundColor={colors.white} barStyle={'dark-content'} />
       <View
         style={{
@@ -39,9 +39,12 @@ export default function Settings() {
             paddingTop: 20,
           }}>
           <View style={{flexDirection: 'row', alignItems: 'center'}}>
-            <TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => {
+                navigation.navigate('Home');
+              }}>
               <Image
-                style={{height: 30, width: 30}}
+                style={{height: 25, width: 25}}
                 source={images.leftArrow}
               />
             </TouchableOpacity>
@@ -56,7 +59,7 @@ export default function Settings() {
             </Text>
           </View>
           <TouchableOpacity>
-            <Image style={{height: 30, width: 30}} source={images.search} />
+            <Image style={{height: 25, width: 25}} source={images.search} />
           </TouchableOpacity>
         </View>
       </View>
@@ -75,23 +78,23 @@ export default function Settings() {
           <View style={{flexDirection: 'row', alignItems: 'center'}}>
             <Image
               source={{uri: data[0].imageUri}}
-              style={{height: 75, width: 75, borderRadius: 100}}
+              style={{height: 65, width: 65, borderRadius: 100}}
             />
             <View
               style={{
                 left: 35,
                 justifyContent: 'space-between',
-                height: 85,
+                height: 65,
               }}>
               <Text
-                style={{color: colors.black, fontSize: 20, fontWeight: '700'}}>
+                style={{color: colors.black, fontSize: 18, fontWeight: '700'}}>
                 {data[0].name}
               </Text>
               <View>
-                <Text style={{color: colors.gray, fontSize: 18}}>
+                <Text style={{color: colors.gray, fontSize: 16}}>
                   {'+31 31233213'}
                 </Text>
-                <Text style={{color: colors.gray, fontSize: 17}}>
+                <Text style={{color: colors.gray, fontSize: 14}}>
                   {'*No Status*'}
                 </Text>
               </View>
@@ -105,12 +108,12 @@ export default function Settings() {
               }}>
               <TouchableOpacity>
                 <Image
-                  style={{height: 30, width: 30, right: 15}}
+                  style={{height: 25, width: 25, right: 15}}
                   source={images.qrCode}
                 />
               </TouchableOpacity>
               <TouchableOpacity>
-                <Image style={{height: 30, width: 30}} source={images.down} />
+                <Image style={{height: 25, width: 25}} source={images.down} />
               </TouchableOpacity>
             </View>
           </View>
@@ -128,13 +131,13 @@ export default function Settings() {
             data={settingsData}
             contentContainerStyle={{paddingBottom: 30}}
             renderItem={({item}) => (
-              <View style={{paddingTop: 30, paddingBottom: 30}}>
+              <View style={{paddingTop: 20, paddingBottom: 20}}>
                 <TouchableOpacity
                   style={{flexDirection: 'row', alignItems: 'center'}}>
                   <Image source={item.icon} style={{height: 30, width: 30}} />
                   <View
                     style={{paddingLeft: 30, justifyContent: 'space-between'}}>
-                    <Text style={{fontSize: 17, color: colors.black, top: -3}}>
+                    <Text style={{fontSize: 16, color: colors.black, top: -3}}>
                       {item.title}
                     </Text>
                     <Text style={{fontSize: 15, color: '#C3C4C6', bottom: -3}}>
@@ -148,7 +151,7 @@ export default function Settings() {
         </View>
         {/* Add */}
         <View style={{paddingRight: 20, paddingLeft: 20}}>
-          <Text style={{paddingBottom: 10}}>Also from Meta</Text>
+          <Text style={{paddingBottom: 10, fontSize: 15}}>Also from Meta</Text>
 
           <FlatList
             scrollEnabled={false}
@@ -158,10 +161,10 @@ export default function Settings() {
               <View style={{paddingTop: 20, paddingBottom: 20}}>
                 <TouchableOpacity
                   style={{flexDirection: 'row', alignItems: 'center'}}>
-                  <Image style={{height: 30, width: 30}} source={item.icon} />
+                  <Image style={{height: 25, width: 25}} source={item.icon} />
                   <Text
                     style={{
-                      fontSize: 15,
+                      fontSize: 13,
                       color: colors.black,
                       paddingLeft: 30,
                     }}>
