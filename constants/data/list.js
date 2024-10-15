@@ -65,7 +65,7 @@ export const data = [
   {
     id: '8',
     imageUri:
-      'https://images.pexels.com/photos/1049317/pexels-photo-1049317.jpeg?auto=compress&cs=tinysrgb&w=600',
+      'https://images.pexels.com/photos/1375849/pexels-photo-1375849.jpeg?auto=compress&cs=tinysrgb&w=600',
     name: 'Grace',
     lastSeen: '1 month ago',
     message: 'I miss our coffee dates!',

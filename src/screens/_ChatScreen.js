@@ -229,12 +229,15 @@ export default function ChatScreen({navigation}) {
                 />
               </TouchableOpacity>
               <TextInput
+                cursorColor={colors.green}
                 placeholder="Message"
+                placeholderTextColor={colors.gray}
                 style={{
                   width: input === '' ? pw(172) : pw(247),
                   fontSize: ph(16),
                   padding: 0,
                   left: 3,
+                  color: colors.black,
                 }}
                 multiline
                 value={input}
