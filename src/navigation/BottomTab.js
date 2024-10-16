@@ -61,8 +61,7 @@ export default function BottomTab() {
             borderTopWidth: 0.5,
             borderTopColor: '#ddd',
           },
-        })}
-        initialRouteName="Call">
+        })}>
         <Tab.Screen name="Chats" component={_Chats} />
         <Tab.Screen name="Updates" component={Updates} />
         <Tab.Screen name="Community" component={Community} />

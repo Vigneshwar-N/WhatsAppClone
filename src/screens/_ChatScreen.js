@@ -15,6 +15,7 @@ import {colors} from '../../constants/color/colors';
 import {images} from '../../constants/images/image';
 import {ph, pw} from '../../utils/responsive';
 import {SelectedItemContext} from '../../Hooks/UseContext';
+import {Time} from '../../Hooks/Time';
 
 export default function ChatScreen({navigation}) {
   const {selectedItem} = useContext(SelectedItemContext); // Now selectedItem is the object
@@ -142,6 +143,15 @@ export default function ChatScreen({navigation}) {
           <Text style={{color: colors.black, fontSize: 14}}>
             {selectedItem.message}
           </Text>
+          <Text
+            style={{
+              alignSelf: 'flex-end',
+              top: 1,
+              fontSize: ph(12),
+              color: colors.gray,
+            }}>
+            {selectedItem.time}
+          </Text>
 
           {/* Custom pointy top-right corner */}
           <View
@@ -174,6 +184,7 @@ export default function ChatScreen({navigation}) {
               position: 'relative',
             }}>
             <Text style={{color: colors.black, fontSize: 14}}>{message}</Text>
+            {/* <Text>{Time()}</Text> */}
 
             {/* Custom pointy top-right corner */}
             <View
