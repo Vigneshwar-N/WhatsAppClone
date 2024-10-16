@@ -33,7 +33,7 @@ export default function Call() {
           <View
             style={{
               backgroundColor: colors.green,
-              borderRadius: 100,
+              borderRadius: pw(100),
               height: ph(50),
               width: pw(50),
               justifyContent: 'center',
