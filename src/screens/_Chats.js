@@ -72,7 +72,7 @@ export default function _Chats({navigation}) {
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.cameraIcon}>
-          <Image style={styles.cameraImage} source={images.whiteCam} />
+          <Image style={styles.cameraImage} source={images.addChat} />
         </TouchableOpacity>
       </View>
 

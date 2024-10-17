@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import {Text, View, StyleSheet} from 'react-native';
 
 export const Time = () => {
   const [time, setTime] = useState(new Date());

@@ -18,18 +18,21 @@ import {SelectedItemContext} from '../../Hooks/UseContext';
 import {Time} from '../../Hooks/Time';
 
 export default function ChatScreen({navigation}) {
-  const {selectedItem} = useContext(SelectedItemContext); // Now selectedItem is the object
+  const crrTime = Time();
+  const {selectedItem} = useContext(SelectedItemContext);
   function ToChats() {
     navigation.navigate('Home');
   }
   const [input, setInput] = useState('');
   const [messages, setMessages] = useState([]);
+  const [showAfterText, setShowAfterText] = useState(false); // New state for showing "after text"
   const image = data[0];
 
   const sendMessage = () => {
     if (input.trim()) {
       setMessages([...messages, input]);
       setInput('');
+      setShowAfterText(true); // Show the "after text" when a message is sent
     }
   };
 
@@ -120,13 +123,27 @@ export default function ChatScreen({navigation}) {
       {/* Messages list */}
       <ScrollView
         contentContainerStyle={{
-          justifyContent: 'flex-end',
+          justifyContent: 'flex-start',
           alignItems: 'flex-end',
           flex: 1,
           paddingBottom: ph(50),
           paddingRight: pw(20),
           paddingLeft: pw(20),
+          paddingTop: ph(20),
         }}>
+        <View
+          style={{
+            backgroundColor: '#EAE8EB',
+            borderRadius: 5,
+            alignItems: 'center',
+            alignSelf: 'center',
+            margin: 10,
+          }}>
+          <Text
+            style={{alignSelf: 'center', padding: '1.2%', color: '#747275'}}>
+            {selectedItem.lastSeen}
+          </Text>
+        </View>
         {/* hello */}
         <View
           style={{
@@ -169,6 +186,24 @@ export default function ChatScreen({navigation}) {
             }}
           />
         </View>
+
+        {/* Conditionally render "after text" */}
+        {showAfterText && (
+          <View
+            style={{
+              backgroundColor: '#EAE8EB',
+              borderRadius: 5,
+              alignItems: 'center',
+              alignSelf: 'center',
+              margin: 10,
+            }}>
+            <Text
+              style={{alignSelf: 'center', padding: '1.2%', color: '#747275'}}>
+              Hello
+            </Text>
+          </View>
+        )}
+
         {/* Messages from users */}
         {messages.map((message, index) => (
           <View
@@ -183,8 +218,23 @@ export default function ChatScreen({navigation}) {
               borderBottomRightRadius: 10,
               position: 'relative',
             }}>
-            <Text style={{color: colors.black, fontSize: 14}}>{message}</Text>
-            {/* <Text>{Time()}</Text> */}
+            <Text
+              style={{
+                color: colors.black,
+                fontSize: 14,
+                alignSelf: 'flex-start',
+              }}>
+              {message}
+            </Text>
+
+            <Text
+              style={{
+                textAlignVertical: 'bottom',
+                alignSelf: 'flex-end',
+                left: 10,
+              }}>
+              {`${crrTime} ✔✔`}
+            </Text>
 
             {/* Custom pointy top-right corner */}
             <View

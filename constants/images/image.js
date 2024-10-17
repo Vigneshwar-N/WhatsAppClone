@@ -1,4 +1,5 @@
 export const images = {
+  addChat: require('../../assets/images/addChat.png'),
   appData: require('../../assets/images/appData.png'),
   attach: require('../../assets/images/attach.png'),
   avatar: require('../../assets/images/avatar.png'),
