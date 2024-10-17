@@ -15,7 +15,7 @@ import {images} from '../../constants/images/image';
 import {colors} from '../../constants/color/colors';
 import {data} from '../../constants/data/list';
 
-export default function NewGroup() {
+export default function NewGroup({navigation}) {
   return (
     <View
       style={{
@@ -35,10 +35,15 @@ export default function NewGroup() {
           borderBottomWidth: pw(1),
         }}>
         <View style={{alignItems: 'center', flexDirection: 'row'}}>
-          <Image
-            style={{height: ph(25), width: pw(25)}}
-            source={images.leftArrow}
-          />
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate('Home');
+            }}>
+            <Image
+              style={{height: ph(25), width: pw(25)}}
+              source={images.leftArrow}
+            />
+          </TouchableOpacity>
           <View style={{paddingLeft: pw(15)}}>
             <Text
               style={{

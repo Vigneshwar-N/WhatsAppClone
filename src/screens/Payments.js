@@ -91,7 +91,12 @@ export default function Payments() {
           },
           shadowRadius: 10,
         }}>
-        <Text style={{color: colors.green, fontSize: ph(14)}}>
+        <Text
+          style={{
+            color: colors.green,
+            fontSize: ph(14),
+            paddingTop: ph(20),
+          }}>
           Chat with business
         </Text>
         <View
@@ -99,6 +104,8 @@ export default function Payments() {
             flexDirection: 'row',
             alignSelf: 'center',
             justifyContent: 'space-evenly',
+            paddingHorizontal: pw(20),
+            paddingVertical: ph(20),
           }}>
           {businessPay.slice(0, 4).map(businessPay => (
             <TouchableOpacity style={{paddingHorizontal: 10}}>
@@ -106,33 +113,33 @@ export default function Payments() {
                 source={{uri: businessPay.icon}}
                 style={{
                   backgroundColor: '#000',
-                  height: 80,
-                  width: 80,
+                  height: ph(80),
+                  width: pw(80),
                   borderRadius: 100,
                 }}
               />
               <View
                 style={{
                   position: 'absolute',
-                  top: 48,
-                  left: 64,
+                  top: ph(50),
+                  left: pw(64),
                   backgroundColor: colors.white,
                   borderRadius: 100,
-                  borderWidth: 5,
+                  borderWidth: pw(5),
                   borderColor: colors.white,
                 }}>
                 <Image
                   source={businessPay.icon2}
                   style={{
-                    height: 20,
-                    width: 20,
+                    height: ph(20),
+                    width: pw(20),
                   }}
                 />
               </View>
               <Text
                 style={{
                   textAlign: 'center',
-                  width: 80,
+                  width: pw(80),
                   paddingVertical: ph(10),
                   color: colors.black,
                 }}>
@@ -146,22 +153,58 @@ export default function Payments() {
       <View
         style={{
           paddingHorizontal: pw(20),
-          marginVertical: ph(10),
           backgroundColor: colors.white,
           elevation: 1,
           shadowColor: colors.black,
           shadowOffset: {
-            height: 10,
+            height: ph(10),
             width: 0,
           },
           shadowRadius: 10,
+          paddingHorizontal: pw(20),
+          backgroundColor: colors.white,
+          marginVertical: ph(10),
         }}>
-        <Text style={{alignSelf: 'center'}}>History</Text>
+        <Text
+          style={{color: colors.green, paddingTop: ph(20), fontSize: ph(14)}}>
+          History
+        </Text>
         <Image
-          style={{alignSelf: 'center', height: 30, width: 30}}
+          style={{
+            alignSelf: 'center',
+            height: ph(60),
+            width: pw(60),
+            marginTop: ph(20),
+          }}
           source={images.ledger}
         />
-        <Text style={{alignSelf: 'center'}}>No payments history</Text>
+        <Text
+          style={{
+            alignSelf: 'center',
+            paddingVertical: ph(10),
+            color: colors.gray,
+            fontSize: ph(14),
+          }}>
+          No payments history
+        </Text>
+      </View>
+      {/* Payments Methods */}
+      <View
+        style={{
+          paddingHorizontal: pw(20),
+          backgroundColor: colors.white,
+          elevation: 1,
+          shadowColor: colors.black,
+          shadowOffset: {
+            height: ph(10),
+            width: 0,
+          },
+          shadowRadius: 10,
+          paddingHorizontal: pw(20),
+          backgroundColor: colors.white,
+          marginVertical: ph(10),
+        }}>
+        <Text>Hello</Text>
       </View>
     </View>
   );

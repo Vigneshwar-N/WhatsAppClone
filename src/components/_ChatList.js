@@ -35,8 +35,7 @@ export default function ChatList({navigation}) {
             style={{
               flexDirection: 'row',
               alignItems: 'center',
-              paddingTop: '2%',
-              paddingBottom: '2%',
+              paddingVertical: ph(10),
             }}>
             <Image
               style={{

@@ -85,8 +85,17 @@ export default function _Chats({navigation}) {
               onPressIn={() => handlePressIn(index)}
               onPressOut={() => handlePressOut(index)}
               onPress={() => {
-                if (item.title === 'Settings') {
+                if (item.id === '6') {
                   navigation.navigate('Settings');
+                }
+                if (item.id === '1') {
+                  navigation.navigate('NewGroup');
+                }
+                if (item.id === '2') {
+                  navigation.navigate('NewBroadCast');
+                }
+                if (item.id === '3') {
+                  navigation.navigate('LinkDevice');
                 }
                 setPop(false);
               }}

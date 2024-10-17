@@ -44,7 +44,7 @@ export default function Search({meta, leftArrow, AiLogo}) {
           maxLength={100}
           placeholder={meta ? 'Ask Meta AI or Search' : 'Search...'}
           placeholderTextColor={'#aaa'}
-          style={{fontSize: ph(15)}}
+          style={{fontSize: ph(15), width: '90%'}}
         />
       </View>
     </View>

@@ -13,7 +13,7 @@ import {images} from '../../constants/images/image';
 import {colors} from '../../constants/color/colors';
 import {projectRoot} from '../../metro.config';
 
-export default function LinkDevice() {
+export default function LinkDevice({navigation}) {
   return (
     <View style={{flex: 1}}>
       <StatusBar backgroundColor={colors.white} barStyle={'dark-content'} />
@@ -28,7 +28,10 @@ export default function LinkDevice() {
           borderBottomWidth: pw(1),
           backgroundColor: colors.white,
         }}>
-        <TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => {
+            navigation.navigate('Home');
+          }}>
           <Image
             style={{height: ph(25), width: pw(25)}}
             source={images.leftArrow}
