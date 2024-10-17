@@ -12,7 +12,7 @@ import {data} from '../../constants/data/list';
 import {ph, pw} from '../../utils/responsive';
 import {SelectedItemContext} from '../../Hooks/UseContext';
 
-export default function ChatList({navigation}) {
+export default function ChatList({navigation, searchQuery}) {
   const {setSelectedItem} = useContext(SelectedItemContext);
 
   function ToChatScreen(item) {
@@ -20,13 +20,18 @@ export default function ChatList({navigation}) {
     setSelectedItem(item); // Correctly set the selected item
   }
 
+  // Filter the chat list based on the search query
+  const filteredData = data.filter(item =>
+    item.name.toLowerCase().includes(searchQuery.toLowerCase()),
+  );
+
   return (
     <View
       style={{paddingRight: pw(20), paddingLeft: pw(20), paddingTop: ph(20)}}>
       <FlatList
         showsVerticalScrollIndicator={false}
         scrollEnabled={false}
-        data={data}
+        data={filteredData} // Use filtered data
         renderItem={({item}) => (
           <TouchableOpacity
             onPress={() => {
@@ -35,7 +40,8 @@ export default function ChatList({navigation}) {
             style={{
               flexDirection: 'row',
               alignItems: 'center',
-              paddingVertical: ph(10),
+              paddingTop: '2%',
+              paddingBottom: '2%',
             }}>
             <Image
               style={{

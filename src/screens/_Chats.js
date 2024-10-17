@@ -24,6 +24,7 @@ export default function _Chats({navigation}) {
   const [pressedStates, setPressedStates] = useState(
     new Array(popup.length).fill(false),
   );
+  const [searchQuery, setSearchQuery] = useState(''); // Search state
 
   const handlePressIn = index => {
     const newPressedStates = [...pressedStates];
@@ -56,9 +57,11 @@ export default function _Chats({navigation}) {
       <ScrollView
         style={{backgroundColor: colors.white}}
         showsVerticalScrollIndicator={false}>
-        <Search AiLogo />
+        {/* Pass search query and search handler */}
+        <Search AiLogo setSearchQuery={setSearchQuery} />
         <ChatOptions />
-        <ChatList navigation={navigation} />
+        {/* Pass search query to ChatList */}
+        <ChatList navigation={navigation} searchQuery={searchQuery} />
       </ScrollView>
 
       {/* Overlay Images */}

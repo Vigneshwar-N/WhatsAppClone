@@ -3,7 +3,7 @@ import React from 'react';
 import {images} from '../../../constants/images/image';
 import {ph, pw} from '../../../utils/responsive';
 
-export default function Search({meta, leftArrow, AiLogo}) {
+export default function Search({meta, leftArrow, AiLogo, setSearchQuery}) {
   return (
     <View
       style={{
@@ -45,6 +45,7 @@ export default function Search({meta, leftArrow, AiLogo}) {
           placeholder={meta ? 'Ask Meta AI or Search' : 'Search...'}
           placeholderTextColor={'#aaa'}
           style={{fontSize: ph(15), width: '90%'}}
+          onChangeText={text => setSearchQuery(text)} // Update search query
         />
       </View>
     </View>
