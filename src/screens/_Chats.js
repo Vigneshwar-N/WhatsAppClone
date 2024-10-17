@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   SafeAreaView,
   ScrollView,
@@ -21,6 +21,13 @@ import {popup} from '../../constants/data/popup';
 
 export default function _Chats({navigation}) {
   const [pop, setPop] = useState(false);
+  useEffect(() => {
+    setTimeout(() => {
+      if (pop === true) {
+        setPop(false);
+      }
+    }, 3000);
+  }, [pop]);
   const [pressedStates, setPressedStates] = useState(
     new Array(popup.length).fill(false),
   );
@@ -99,6 +106,9 @@ export default function _Chats({navigation}) {
                 }
                 if (item.id === '3') {
                   navigation.navigate('LinkDevice');
+                }
+                if (item.id === '5') {
+                  navigation.navigate('Payments');
                 }
                 setPop(false);
               }}

@@ -10,6 +10,7 @@ import Settings from '../screens/_Settings';
 import LinkDevice from '../screens/LinkDevice';
 import NewBroadCast from '../screens/_NewBroadCast';
 import NewGroup from '../screens/_NewGroup';
+import Payments from '../screens/Payments';
 
 export default function StackNav() {
   const Stack = createNativeStackNavigator();
@@ -26,6 +27,7 @@ export default function StackNav() {
         <Stack.Screen name="LinkDevice" component={LinkDevice} />
         <Stack.Screen name="NewBroadCast" component={NewBroadCast} />
         <Stack.Screen name="NewGroup" component={NewGroup} />
+        <Stack.Screen name="Payments" component={Payments} />
       </Stack.Navigator>
     </View>
   );
