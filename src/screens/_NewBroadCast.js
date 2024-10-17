@@ -15,7 +15,7 @@ import {images} from '../../constants/images/image';
 import {colors} from '../../constants/color/colors';
 import {data} from '../../constants/data/list';
 
-export default function NewGroup() {
+export default function NewBroadCast() {
   return (
     <View
       style={{
@@ -46,65 +46,18 @@ export default function NewGroup() {
                 color: colors.black,
                 fontWeight: '500',
               }}>
-              New Group
+              New broadcast
             </Text>
             <Text style={{fontSize: ph(12), color: colors.black}}>
-              Add members
+              0 of 16 selected
             </Text>
           </View>
         </View>
         <Image style={{height: ph(25), width: pw(25)}} source={images.search} />
       </View>
       <ScrollView showsVerticalScrollIndicator={false}>
-        {/* Frequently  contacted */}
-        <Text
-          style={{
-            paddingHorizontal: pw(20),
-            color: colors.grayText,
-            fontSize: ph(13),
-            paddingVertical: ph(20),
-          }}>
-          Frequently Contacted
-        </Text>
         <View>
-          {data.slice(1, 5).map(data => (
-            <View
-              key={data.id}
-              style={{paddingVertical: ph(20), paddingHorizontal: pw(20)}}>
-              <View style={{flexDirection: 'row', alignItems: 'center'}}>
-                <Image
-                  source={{uri: data.imageUri}}
-                  style={{height: ph(65), width: pw(65), borderRadius: pw(100)}}
-                />
-                <View
-                  style={{
-                    alignSelf: 'center',
-                    justifyContent: 'space-between',
-                    paddingLeft: 20,
-                  }}>
-                  <Text style={{fontSize: ph(17), color: colors.black}}>
-                    {data.name}
-                  </Text>
-                  <Text style={{fontSize: ph(15), color: colors.grayText}}>
-                    {data.description}
-                  </Text>
-                </View>
-              </View>
-            </View>
-          ))}
-        </View>
-        {/* Contacts on whatsapp */}
-        <Text
-          style={{
-            paddingHorizontal: pw(20),
-            color: colors.grayText,
-            fontSize: ph(13),
-            paddingVertical: ph(10),
-          }}>
-          Contacts on Whatsapp
-        </Text>
-        <View style={{paddingBottom: ph(20)}}>
-          {data.slice(6, 16).map(data => (
+          {data.slice(1, 16).map(data => (
             <View
               key={data.id}
               style={{paddingVertical: ph(20), paddingHorizontal: pw(20)}}>
@@ -134,7 +87,7 @@ export default function NewGroup() {
       {/* Overlay Images */}
       <TouchableOpacity style={styles.overlayContainer}>
         <TouchableOpacity style={styles.cameraIcon}>
-          <Image style={styles.cameraImage} source={images.rightArrowWhite} />
+          <Image style={styles.cameraImage} source={images.correct} />
         </TouchableOpacity>
       </TouchableOpacity>
     </View>

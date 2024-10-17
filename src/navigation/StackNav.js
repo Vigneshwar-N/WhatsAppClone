@@ -7,6 +7,7 @@ import ChatScreen from '../screens/_ChatScreen';
 import Splash from '../screens/_Splash';
 import BottomTab from './BottomTab'; // Import only here
 import Settings from '../screens/_Settings';
+import LinkDevice from '../screens/LinkDevice';
 
 export default function StackNav() {
   const Stack = createNativeStackNavigator();
@@ -19,6 +20,8 @@ export default function StackNav() {
         <Stack.Screen name="Splash" component={Splash} />
         <Stack.Screen name="Home" component={BottomTab} />
         <Stack.Screen name="ChatScreen" component={ChatScreen} />
+        <Stack.Screen name="Settings" component={Settings} />
+        <Stack.Screen name="LinkDevice" component={LinkDevice} />
         <Stack.Screen name="Settings" component={Settings} />
       </Stack.Navigator>
     </View>
