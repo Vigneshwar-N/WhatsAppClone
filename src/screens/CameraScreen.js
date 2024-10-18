@@ -29,7 +29,7 @@ export default function CameraScreen() {
         flex: 1,
         backgroundColor: colors.black,
         justifyContent: 'flex-start',
-        paddingTop: 50,
+        paddingTop: ph(50),
       }}>
       <StatusBar backgroundColor={colors.black} barStyle={'dark-content'} />
       <View
@@ -97,9 +97,9 @@ export default function CameraScreen() {
           }}
           style={{
             backgroundColor: photo ? '#1A1A1A' : null,
-            borderRadius: 50,
+            borderRadius: pw(50),
             padding: '2%',
-            marginRight: 5,
+            marginRight: pw(5),
           }}>
           <Text style={{color: '#FFF'}}>Photo</Text>
         </TouchableOpacity>
@@ -109,9 +109,9 @@ export default function CameraScreen() {
           }}
           style={{
             backgroundColor: video ? '#1A1A1A' : null,
-            borderRadius: 50,
+            borderRadius: pw(50),
             padding: '2%',
-            marginLeft: 5,
+            marginLeft: pw(5),
           }}>
           <Text style={{color: '#FFF'}}>Video</Text>
         </TouchableOpacity>
@@ -125,7 +125,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(0, 0, 0, 0.5)', // Corrected to rgba for transparency
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 100,
+    borderRadius: pw(100),
     padding: '2%',
   },
 });
