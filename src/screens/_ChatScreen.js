@@ -199,7 +199,7 @@ export default function ChatScreen({navigation}) {
             }}>
             <Text
               style={{alignSelf: 'center', padding: '1.2%', color: '#747275'}}>
-              Hello
+              Today
             </Text>
           </View>
         )}

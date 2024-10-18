@@ -18,7 +18,7 @@ export default function StackNav() {
   return (
     <View style={{flex: 1}}>
       <Stack.Navigator
-        initialRouteName="Home"
+        initialRouteName="Splash"
         screenOptions={{headerShown: false}}>
         <Stack.Screen name="Splash" component={Splash} />
         <Stack.Screen name="Home" component={BottomTab} />
