@@ -11,6 +11,7 @@ import LinkDevice from '../screens/LinkDevice';
 import NewBroadCast from '../screens/_NewBroadCast';
 import NewGroup from '../screens/_NewGroup';
 import Payments from '../screens/Payments';
+import CameraScreen from '../screens/CameraScreen';
 
 export default function StackNav() {
   const Stack = createNativeStackNavigator();
@@ -28,6 +29,7 @@ export default function StackNav() {
         <Stack.Screen name="NewBroadCast" component={NewBroadCast} />
         <Stack.Screen name="NewGroup" component={NewGroup} />
         <Stack.Screen name="Payments" component={Payments} />
+        <Stack.Screen name="CameraScreen" component={CameraScreen} />
       </Stack.Navigator>
     </View>
   );

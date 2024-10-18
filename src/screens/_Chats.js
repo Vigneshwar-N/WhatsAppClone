@@ -60,6 +60,9 @@ export default function _Chats({navigation}) {
         dotPress={() => {
           setPop(prev => !prev);
         }}
+        onPressCamera={() => {
+          navigation.navigate('CameraScreen');
+        }}
       />
       <ScrollView
         style={{backgroundColor: colors.white}}
